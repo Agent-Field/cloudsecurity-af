@@ -15,7 +15,7 @@ This benchmark is used to answer:
 ## Final Baseline Run (Product Snapshot)
 
 - Execution: `exec_20260312_041237_fbjd66qy`
-- Dataset: TerraGoat AWS Terraform (`benchmark/terragoat/terraform/aws`)
+- Dataset: TerraGoat AWS Terraform (`benchmarks/terragoat/terraform/aws`)
 - Profile: `quick` (severity threshold `low`)
 - Total resources scanned: 68
 - Raw findings: 45

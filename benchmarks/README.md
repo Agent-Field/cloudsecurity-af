@@ -18,7 +18,7 @@ To run CloudSecurity AF against the AWS portion of TerraGoat in Tier 1 (Static) 
 ```bash
 # From the cloudsecurity-af root directory
 source .venv/bin/activate
-python -m cloudsecurity_af.app --repo benchmark/terragoat/terraform/aws --depth standard --format report
+python -m cloudsecurity_af.app --repo benchmarks/terragoat/terraform/aws --depth standard --format report
 ```
 
 ## 2. LocalStack (Live Proving Benchmark)
@@ -44,5 +44,5 @@ To demonstrate the **Tier 2 (Live Proving)** capabilities without needing a real
     export AWS_DEFAULT_REGION="us-east-1"
     export AWS_ENDPOINT_URL="http://localhost:4566"
     
-    python -m cloudsecurity_af.app --repo benchmark/terragoat/terraform/aws --depth standard --format report
+    python -m cloudsecurity_af.app --repo benchmarks/terragoat/terraform/aws --depth standard --format report
     ```

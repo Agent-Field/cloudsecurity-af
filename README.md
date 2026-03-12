@@ -27,6 +27,36 @@ It connects individual misconfigurations into realistic risk chains, validates w
   <img src="assets/hero.png" alt="CloudSecurity AF — shift-left attack path analysis" width="100%" />
 </p>
 
+## One-Call DX
+
+```bash
+curl -X POST http://localhost:8080/api/v1/execute/async/cloudsecurity.scan \
+  -H "Content-Type: application/json" \
+  -d '{"input": {"repo_url": "https://github.com/org/infra-repo"}}'
+```
+
+Returns risk-prioritized attack paths — not individual findings, but chains showing how misconfigurations combine into real exploits:
+
+```jsonc
+{
+  "attack_paths": [
+    {
+      "severity": "critical",
+      "title": "Public S3 → IAM Escalation → RDS Exfiltration",
+      "chain": [
+        {"step": 1, "resource": "aws_s3_bucket.uploads", "issue": "Public read access enabled"},
+        {"step": 2, "resource": "aws_iam_role.lambda_exec", "issue": "Wildcard S3 permissions + RDS access"},
+        {"step": 3, "resource": "aws_db_instance.production", "issue": "No VPC restriction, accessible from Lambda"}
+      ],
+      "impact": "Attacker reads S3 bucket → discovers Lambda credentials → pivots to production database",
+      "verdict": "confirmed",
+      "remediation": "Restrict S3 ACL, scope IAM policy to specific bucket ARN, add VPC security group to RDS"
+    }
+  ],
+  "summary": {"total_findings": 23, "attack_paths": 4, "critical": 1, "high": 2, "confirmed": 3}
+}
+```
+
 ## Why CloudSecurity?
 
 Checkov, tfsec, and KICS are strong at broad control checks. Wiz, Orca, and Prisma Cloud are strong once infrastructure is live. CloudSecurity fills the shift-left gap in between: **priority-grade attack path analysis directly from IaC, before deployment**.
