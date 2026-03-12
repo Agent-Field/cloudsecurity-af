@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cloudprove-af"
+name = "cloudsecurity-af"
 version = "0.1.0"
 description = "AI-Native Cloud Infrastructure Security Scanner built on AgentField"
 readme = "README.md"
@@ -27,10 +27,10 @@ dev = [
 ]
 
 [project.scripts]
-cloudprove-af = "cloudprove_af.app:main"
+cloudsecurity-af = "cloudsecurity_af.app:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/cloudprove_af"]
+packages = ["src/cloudsecurity_af"]
 
 [tool.ruff]
 target-version = "py311"

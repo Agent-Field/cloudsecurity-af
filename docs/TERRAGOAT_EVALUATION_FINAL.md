@@ -4,13 +4,13 @@ Date: 2026-03-12
 
 ## Benchmark Objective
 
-Evaluate CloudProve as a **pre-deployment risk-prioritization system** on TerraGoat AWS Terraform.
+Evaluate CloudSecurity as a **pre-deployment risk-prioritization system** on TerraGoat AWS Terraform.
 
 This benchmark is used to answer:
 
-1. Does CloudProve surface material infrastructure risk before deploy?
+1. Does CloudSecurity surface material infrastructure risk before deploy?
 2. Does it produce decision-quality outputs that help teams fix the right issues first?
-3. Where should CloudProve be positioned in a real security stack?
+3. Where should CloudSecurity be positioned in a real security stack?
 
 ## Final Baseline Run (Product Snapshot)
 
@@ -26,7 +26,7 @@ This benchmark is used to answer:
 
 ## Benchmark Verdict
 
-CloudProve passes the benchmark as a **high-signal prioritization layer**.
+CloudSecurity passes the benchmark as a **high-signal prioritization layer**.
 
 - It identifies meaningful, exploitable infrastructure risk early.
 - It performs strongly on cross-resource chain logic and fix-first triage.
@@ -47,7 +47,7 @@ CloudProve passes the benchmark as a **high-signal prioritization layer**.
 
 ## Practical Positioning from Benchmark Results
 
-CloudProve should be positioned as:
+CloudSecurity should be positioned as:
 
 **"The shift-left decision layer for infrastructure risk."**
 
@@ -58,7 +58,7 @@ Not a replacement for every scanner, but the layer that answers:
 Recommended stack placement:
 
 - Rule scanners for broad control linting.
-- CloudProve for pre-deploy risk prioritization and attack-path context.
+- CloudSecurity for pre-deploy risk prioritization and attack-path context.
 - Runtime CNAPP for deployed-cloud monitoring and drift.
 
 ## Final Reportable Snapshot

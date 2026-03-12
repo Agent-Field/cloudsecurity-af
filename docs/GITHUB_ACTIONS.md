@@ -3,7 +3,7 @@
 ## Tier 1: Static Scan (no credentials needed)
 
 ```yaml
-name: cloudprove-scan
+name: cloudsecurity-scan
 on:
   pull_request:
     paths:
@@ -22,9 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Trigger CloudProve Scan
+      - name: Trigger CloudSecurity Scan
         run: |
-          RESPONSE=$(curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudprove.scan" \
+          RESPONSE=$(curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudsecurity.scan" \
             -H "Content-Type: application/json" \
             -d '{
               "input": {
@@ -62,7 +62,7 @@ jobs:
 ## Tier 2: Live Verification (with cloud credentials)
 
 ```yaml
-name: cloudprove-prove
+name: cloudsecurity-prove
 on:
   pull_request:
     paths:
@@ -85,9 +85,9 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: us-east-1
 
-      - name: Trigger CloudProve Prove
+      - name: Trigger CloudSecurity Prove
         run: |
-          RESPONSE=$(curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudprove.prove" \
+          RESPONSE=$(curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudsecurity.prove" \
             -H "Content-Type: application/json" \
             -d '{
               "input": {

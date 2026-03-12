@@ -1,6 +1,6 @@
 <div align="center">
 
-# CloudProve-AF
+# CloudSecurity AF
 
 ### AI-Native Cloud Infrastructure Security Scanner Built on [AgentField](https://github.com/Agent-Field/agentfield)
 
@@ -11,7 +11,7 @@
 
 <p>
   <a href="#what-you-get-back">Output</a> •
-  <a href="#why-cloudprove">Why CloudProve</a> •
+  <a href="#why-cloudsecurity">Why CloudSecurity</a> •
   <a href="#architecture">Architecture</a> •
   <a href="#quick-start">Quick Start</a> •
   <a href="docs/ARCHITECTURE.md">Full Spec</a>
@@ -19,19 +19,19 @@
 
 </div>
 
-Most IaC tools tell you everything that is wrong. CloudProve tells you what is most dangerous **first**.
+Most IaC tools tell you everything that is wrong. CloudSecurity tells you what is most dangerous **first**.
 
 It connects individual misconfigurations into realistic risk chains, validates which ones matter most, and gives teams a clear fix-first path before deployment. Open source, API-first, and designed for fast CI workflows.
 
 <p align="center">
-  <img src="assets/hero.png" alt="CloudProve-AF — shift-left attack path analysis" width="100%" />
+  <img src="assets/hero.png" alt="CloudSecurity AF — shift-left attack path analysis" width="100%" />
 </p>
 
-## Why CloudProve?
+## Why CloudSecurity?
 
-Checkov, tfsec, and KICS are strong at broad control checks. Wiz, Orca, and Prisma Cloud are strong once infrastructure is live. CloudProve fills the shift-left gap in between: **priority-grade attack path analysis directly from IaC, before deployment**.
+Checkov, tfsec, and KICS are strong at broad control checks. Wiz, Orca, and Prisma Cloud are strong once infrastructure is live. CloudSecurity fills the shift-left gap in between: **priority-grade attack path analysis directly from IaC, before deployment**.
 
-| Capability | CloudProve-AF | Checkov / tfsec / KICS | Wiz / Orca / Prisma Cloud |
+| Capability | CloudSecurity AF | Checkov / tfsec / KICS | Wiz / Orca / Prisma Cloud |
 |---|---|---|---|
 | **Core value** | Risk-prioritized attack-path triage pre-deploy | Broad policy/rule coverage | Runtime posture and exposure monitoring |
 | **Attack path chains** | Yes (CHAIN phase) | No (individual findings) | Yes |
@@ -40,23 +40,23 @@ Checkov, tfsec, and KICS are strong at broad control checks. Wiz, Orca, and Pris
 | **Remediation context** | IaC fix path + impact framing | Basic fix hints | Mostly runtime-centric workflows |
 | **Cost profile** | **Free / open source** (BYOK model cost) | Free / open source | Enterprise platform contracts ($$$) |
 
-## Where CloudProve Sits in the Stack
+## Where CloudSecurity Sits in the Stack
 
-CloudProve is not a replace-all scanner. It is the **decision layer** in a modern cloud security stack:
+CloudSecurity is not a replace-all scanner. It is the **decision layer** in a modern cloud security stack:
 
 - **Rule scanners** (Checkov/tfsec/KICS): broad deterministic control coverage.
-- **CloudProve**: pre-deploy risk prioritization and multi-resource attack-path context.
+- **CloudSecurity**: pre-deploy risk prioritization and multi-resource attack-path context.
 - **Runtime CNAPP** (Wiz/Orca/Prisma Cloud): deployed-cloud visibility and runtime monitoring.
 
 Recommended operating model:
 
-1. Run rule scanner + CloudProve in PR for breadth + fix-first prioritization.
+1. Run rule scanner + CloudSecurity in PR for breadth + fix-first prioritization.
 2. Use runtime CNAPP after deploy for drift and production-state risk.
 
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.png" alt="CloudProve-AF Signal Cascade Pipeline" width="100%" />
+  <img src="assets/architecture.png" alt="CloudSecurity AF Signal Cascade Pipeline" width="100%" />
 </p>
 
 - **RECON**: Reads IaC, builds a resource graph, and optionally pulls live cloud state and drift.
@@ -70,22 +70,22 @@ Recommended operating model:
 ## Quick Start
 
 ```bash
-pip install cloudprove-af
+pip install cloudsecurity-af
 
 # Start AgentField control plane
 # (typically at http://localhost:8080)
 
-cloudprove-af  # starts on port 8004
+cloudsecurity-af  # starts on port 8004
 
 # Trigger a scan
-curl -X POST http://localhost:8004/api/v1/execute/async/cloudprove.scan \
+curl -X POST http://localhost:8004/api/v1/execute/async/cloudsecurity.scan \
   -H "Content-Type: application/json" \
   -d '{"repo_url": "https://github.com/org/infra-repo"}'
 ```
 
 Key API skills:
-- `cloudprove.scan` (Tier 1 static analysis)
-- `cloudprove.prove` (Tier 2+ live verification flow)
+- `cloudsecurity.scan` (Tier 1 static analysis)
+- `cloudsecurity.prove` (Tier 2+ live verification flow)
 
 ## Three Tiers
 
@@ -97,10 +97,10 @@ Key API skills:
 
 ## CI/CD Integration
 
-CloudProve is designed for PR-time scanning with SARIF upload:
+CloudSecurity is designed for PR-time scanning with SARIF upload:
 
 ```yaml
-name: cloudprove-scan
+name: cloudsecurity-scan
 on:
   pull_request:
     paths:
@@ -116,9 +116,9 @@ jobs:
       security-events: write
     steps:
       - uses: actions/checkout@v4
-      - name: Trigger CloudProve
+      - name: Trigger CloudSecurity
         run: |
-          curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudprove.scan" \
+          curl -sS -X POST "$AGENTFIELD_SERVER/api/v1/execute/async/cloudsecurity.scan" \
             -H "Content-Type: application/json" \
             -d '{"input":{"repo_url":".","depth":"quick","output_formats":["sarif","json"]}}'
 ```
@@ -138,16 +138,16 @@ See [`docs/GITHUB_ACTIONS.md`](docs/GITHUB_ACTIONS.md) for full Tier 1 and Tier 
 | Variable | Required | Default | Purpose |
 |---|---|---|---|
 | `AGENTFIELD_SERVER` | No | `http://localhost:8080` | AgentField control plane URL |
-| `NODE_ID` | No | `cloudprove` | Agent node identifier |
+| `NODE_ID` | No | `cloudsecurity` | Agent node identifier |
 | `OPENROUTER_API_KEY` | Yes | - | Model provider credential |
-| `CLOUDPROVE_PROVIDER` | No | `opencode` | Harness provider override |
-| `CLOUDPROVE_MODEL` | No | `minimax/minimax-m2.5` | Harness model |
-| `CLOUDPROVE_AI_MODEL` | No | `CLOUDPROVE_MODEL`/`AI_MODEL` fallback | `.ai()` gate model |
-| `CLOUDPROVE_MAX_TURNS` | No | `50` | Max turns per harness call |
-| `CLOUDPROVE_REPO_PATH` | No | cwd | Local repository path fallback |
+| `CLOUDSECURITY_PROVIDER` | No | `opencode` | Harness provider override |
+| `CLOUDSECURITY_MODEL` | No | `minimax/minimax-m2.5` | Harness model |
+| `CLOUDSECURITY_AI_MODEL` | No | `CLOUDSECURITY_MODEL`/`AI_MODEL` fallback | `.ai()` gate model |
+| `CLOUDSECURITY_MAX_TURNS` | No | `50` | Max turns per harness call |
+| `CLOUDSECURITY_REPO_PATH` | No | cwd | Local repository path fallback |
 | `AGENT_CALLBACK_URL` | No | `http://127.0.0.1:8004` | Agent callback endpoint |
 
-### Core `CloudProveInput` Fields
+### Core `CloudSecurityInput` Fields
 
 - `repo_url`, `branch`, `commit_sha`, `base_commit_sha`
 - `depth` (`quick` | `standard` | `thorough`)
@@ -171,7 +171,7 @@ ruff check src tests
 mypy src
 
 # Run service locally
-cloudprove-af
+cloudsecurity-af
 ```
 
 Package metadata:
@@ -181,8 +181,8 @@ Package metadata:
 
 ## Open Core Model
 
-CloudProve uses an open-core model: `scan` and `prove` remain open source (Apache 2.0), while enterprise adds org-scale controls such as multi-account management, scheduled monitoring, and RBAC/audit features. See [`docs/OPEN_CORE.md`](docs/OPEN_CORE.md) for the full tier breakdown.
+CloudSecurity uses an open-core model: `scan` and `prove` remain open source (Apache 2.0), while enterprise adds org-scale controls such as multi-account management, scheduled monitoring, and RBAC/audit features. See [`docs/OPEN_CORE.md`](docs/OPEN_CORE.md) for the full tier breakdown.
 
 ## License
 
-CloudProve-AF is licensed under Apache 2.0. See [`LICENSE`](LICENSE).
+CloudSecurity AF is licensed under Apache 2.0. See [`LICENSE`](LICENSE).

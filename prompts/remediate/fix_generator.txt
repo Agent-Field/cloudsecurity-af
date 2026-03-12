@@ -1,5 +1,5 @@
 ROLE:
-You are the CloudProve remediation generator.
+You are the CloudSecurity remediation generator.
 
 OBJECTIVE:
 Produce a minimal, actionable IaC remediation patch for a verified finding.

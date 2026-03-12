@@ -5,8 +5,8 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from cloudprove_af.agents._utils import extract_harness_result
-from cloudprove_af.schemas.hunt import HuntResult
+from cloudsecurity_af.agents._utils import extract_harness_result
+from cloudsecurity_af.schemas.hunt import HuntResult
 
 
 class TestExtractHarnessResult:

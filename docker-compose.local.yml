@@ -1,23 +1,23 @@
-# CloudProve-AF agent-only compose — connects to host CP (not containerized)
+# CloudSecurity AF agent-only compose — connects to host CP (not containerized)
 # Usage: OPENROUTER_API_KEY=sk-or-... docker compose -f docker-compose.local.yml up --build
 services:
-  cloudprove-af:
+  cloudsecurity-af:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cloudprove-af-agent
+    container_name: cloudsecurity-af-agent
     ports:
       - "8005:8005"
     environment:
       - AGENTFIELD_SERVER=http://host.docker.internal:8080
       - AGENT_CALLBACK_URL=http://host.docker.internal:8005
       - HARNESS_PROVIDER=opencode
-      - HARNESS_MODEL=openrouter/anthropic/claude-3.7-sonnet
-      - AI_MODEL=openrouter/anthropic/claude-3.7-sonnet
+      - HARNESS_MODEL=minimax/minimax-m2.5
+      - AI_MODEL=minimax/minimax-m2.5
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - PYTHONUNBUFFERED=1
     volumes:
-      - cloudprove-af-workspaces:/workspaces
+      - cloudsecurity-af-workspaces:/workspaces
       - ./benchmark:/app/benchmark
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -30,4 +30,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  cloudprove-af-workspaces:
+  cloudsecurity-af-workspaces:

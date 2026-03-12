@@ -4,13 +4,13 @@ import json
 import sys
 from pathlib import Path
 
-from cloudprove_af.schemas.input import CloudProveInput, CloudConfig
-from cloudprove_af.orchestrator import ScanOrchestrator
-from cloudprove_af.app import app
+from cloudsecurity_af.schemas.input import CloudSecurityInput, CloudConfig
+from cloudsecurity_af.orchestrator import ScanOrchestrator
+from cloudsecurity_af.app import app
 
 
 async def main():
-    parser = argparse.ArgumentParser(description="CloudProve-AF CLI")
+    parser = argparse.ArgumentParser(description="CloudSecurity AF CLI")
     parser.add_argument("--repo", required=True, help="Path to the repository to scan")
     parser.add_argument("--depth", default="standard", choices=["quick", "standard", "deep"], help="Scan depth")
     parser.add_argument("--format", default="json", choices=["json", "sarif", "report"], help="Output format")
@@ -21,14 +21,14 @@ async def main():
         print(f"Error: Repository path {repo_path} does not exist.")
         sys.exit(1)
 
-    input_data = CloudProveInput(
+    input_data = CloudSecurityInput(
         repo_url=str(repo_path),
         depth=args.depth,
         cloud_config=None,  # Tier 1 (Static)
         output_format=args.format,
     )
 
-    print(f"Starting CloudProve-AF scan on {repo_path} (Depth: {args.depth})")
+    print(f"Starting CloudSecurity AF scan on {repo_path} (Depth: {args.depth})")
     orchestrator = ScanOrchestrator(app, input_data)
 
     try:

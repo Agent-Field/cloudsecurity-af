@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from cloudprove_af.scoring import (
+from cloudsecurity_af.scoring import (
     EvidenceMethod,
     Exposure,
     Severity,

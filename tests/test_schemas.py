@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from cloudprove_af.schemas.input import CloudConfig, CloudProveInput
-from cloudprove_af.schemas.recon import (
+from cloudsecurity_af.schemas.input import CloudConfig, CloudSecurityInput
+from cloudsecurity_af.schemas.recon import (
     ConfigDiff,
     DriftedResource,
     DriftReport,
@@ -21,7 +21,7 @@ from cloudprove_af.schemas.recon import (
     ResourceNode,
     Variable,
 )
-from cloudprove_af.schemas.hunt import (
+from cloudsecurity_af.schemas.hunt import (
     AffectedResource,
     Confidence,
     FindingCategory,
@@ -29,8 +29,8 @@ from cloudprove_af.schemas.hunt import (
     HuntResult,
     RawFinding,
 )
-from cloudprove_af.schemas.chain import AttackPath, AttackStep, BlastRadius, ChainResult
-from cloudprove_af.schemas.prove import (
+from cloudsecurity_af.schemas.chain import AttackPath, AttackStep, BlastRadius, ChainResult
+from cloudsecurity_af.schemas.prove import (
     IaCDiff,
     Proof,
     ProofMethod,
@@ -38,8 +38,8 @@ from cloudprove_af.schemas.prove import (
     Verdict,
     VerifiedFinding,
 )
-from cloudprove_af.schemas.output import CloudProveScanResult, ScanMetrics, ScanProgress
-from cloudprove_af.scoring import Severity
+from cloudsecurity_af.schemas.output import CloudSecurityScanResult, ScanMetrics, ScanProgress
+from cloudsecurity_af.scoring import Severity
 
 
 # ---------------------------------------------------------------------------
@@ -61,15 +61,15 @@ class TestCloudConfig:
         assert cfg.regions == ["us-central1"]
 
 
-class TestCloudProveInput:
+class TestCloudSecurityInput:
     def test_tier1_no_cloud(self) -> None:
-        inp = CloudProveInput(repo_url="/tmp/my-repo")
+        inp = CloudSecurityInput(repo_url="/tmp/my-repo")
         assert inp.tier == 1
         assert inp.cloud is None
         assert inp.depth == "standard"
 
     def test_tier2_with_cloud(self) -> None:
-        inp = CloudProveInput(
+        inp = CloudSecurityInput(
             repo_url="/tmp/my-repo",
             cloud=CloudConfig(provider="aws"),
         )
@@ -77,11 +77,11 @@ class TestCloudProveInput:
 
     def test_depth_options(self) -> None:
         for depth in ("quick", "standard", "thorough"):
-            inp = CloudProveInput(repo_url=".", depth=depth)
+            inp = CloudSecurityInput(repo_url=".", depth=depth)
             assert inp.depth == depth
 
     def test_default_exclude_paths(self) -> None:
-        inp = CloudProveInput(repo_url=".")
+        inp = CloudSecurityInput(repo_url=".")
         assert ".git/" in inp.exclude_paths
         assert ".terraform/" in inp.exclude_paths
 
@@ -282,7 +282,7 @@ class TestOutputSchemas:
     def test_scan_result_minimal(self) -> None:
         from datetime import datetime
 
-        result = CloudProveScanResult(
+        result = CloudSecurityScanResult(
             repository="/tmp/repo",
             commit_sha="abc123",
             timestamp=datetime.now(),

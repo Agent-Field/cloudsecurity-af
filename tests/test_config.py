@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from cloudprove_af.config import (
+from cloudsecurity_af.config import (
     BudgetConfig,
     DepthProfile,
     DEPTH_CHAIN_LIMITS,
@@ -10,7 +10,7 @@ from cloudprove_af.config import (
     DEPTH_PROVER_CAPS,
     ScanConfig,
 )
-from cloudprove_af.schemas.input import CloudProveInput
+from cloudsecurity_af.schemas.input import CloudSecurityInput
 
 
 class TestDepthProfile:
@@ -58,21 +58,21 @@ class TestBudgetConfig:
 
 class TestScanConfig:
     def test_from_input_tier1(self) -> None:
-        inp = CloudProveInput(repo_url="/tmp/repo", depth="quick")
+        inp = CloudSecurityInput(repo_url="/tmp/repo", depth="quick")
         cfg = ScanConfig.from_input(inp, "/tmp/repo")
         assert cfg.depth == DepthProfile.QUICK
         assert cfg.tier == 1
         assert cfg.repo_path == "/tmp/repo"
 
     def test_from_input_tier2(self) -> None:
-        from cloudprove_af.schemas.input import CloudConfig
+        from cloudsecurity_af.schemas.input import CloudConfig
 
-        inp = CloudProveInput(repo_url="/tmp/repo", cloud=CloudConfig())
+        inp = CloudSecurityInput(repo_url="/tmp/repo", cloud=CloudConfig())
         cfg = ScanConfig.from_input(inp, "/tmp/repo")
         assert cfg.tier == 2
 
     def test_from_input_budget_override(self) -> None:
-        inp = CloudProveInput(
+        inp = CloudSecurityInput(
             repo_url="/tmp/repo",
             max_concurrent_hunters=2,
             max_concurrent_provers=1,

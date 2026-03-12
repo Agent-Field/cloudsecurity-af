@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from cloudprove_af.agents._utils import build_graph_context_for_hunter
-from cloudprove_af.schemas.recon import (
+from cloudsecurity_af.agents._utils import build_graph_context_for_hunter
+from cloudsecurity_af.schemas.recon import (
     Resource,
     ResourceEdge,
     ResourceGraph,

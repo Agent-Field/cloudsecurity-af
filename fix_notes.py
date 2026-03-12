@@ -20,7 +20,7 @@ def fix_file(filepath):
         f.writelines(new_lines)
 
 
-for root, dirs, files in os.walk("src/cloudprove_af"):
+for root, dirs, files in os.walk("src/cloudsecurity_af"):
     for file in files:
         if file.endswith(".py"):
             fix_file(os.path.join(root, file))

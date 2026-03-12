@@ -1,8 +1,8 @@
-# CloudProve-AF Architecture
+# CloudSecurity AF Architecture
 
 ## Design Philosophy: Harness-First
 
-CloudProve-AF is an orchestration of autonomous harnesses, not a programmatic scanner with rules. Each harness is a guided LLM agent with full tool access — it can read IaC files, reason about security implications, write code (boto3/gcloud/az scripts), execute that code against live cloud APIs, and interpret results.
+CloudSecurity AF is an orchestration of autonomous harnesses, not a programmatic scanner with rules. Each harness is a guided LLM agent with full tool access — it can read IaC files, reason about security implications, write code (boto3/gcloud/az scripts), execute that code against live cloud APIs, and interpret results.
 
 **What the orchestrator does (programmatic, thin):**
 - Phase pipeline management (RECON → HUNT → CHAIN → PROVE → REMEDIATE)
@@ -17,7 +17,7 @@ CloudProve-AF is an orchestration of autonomous harnesses, not a programmatic sc
 
 ### Why Harness-First Beats Rules
 
-| Rule-Based Scanner (Checkov, tfsec) | Harness-First (CloudProve) |
+| Rule-Based Scanner (Checkov, tfsec) | Harness-First (CloudSecurity) |
 |---|---|
 | Checks one resource at a time against a rule database | Reads infrastructure holistically, reasons about resource *combinations* |
 | Can only find what it has rules for | Can find novel misconfigurations it's never seen before |
@@ -44,7 +44,7 @@ CloudProve-AF is an orchestration of autonomous harnesses, not a programmatic sc
 
 ## Progressive Tiers
 
-CloudProve operates in three tiers based on what credentials are available. The architecture is the same — tiers unlock additional harnesses.
+CloudSecurity operates in three tiers based on what credentials are available. The architecture is the same — tiers unlock additional harnesses.
 
 | Tier | Input | Unlocked Harnesses | CI/CD | Typical Cost | Time |
 |---|---|---|---|---|---|
@@ -190,15 +190,15 @@ class ConfigDiff(BaseModel):
 
 ```python
 # Tier 1: Static only
-iac_inventory = await app.call("cloudprove.run_iac_reader", repo_path=repo_path)
-resource_graph = await app.call("cloudprove.run_resource_graph_builder",
+iac_inventory = await app.call("cloudsecurity.run_iac_reader", repo_path=repo_path)
+resource_graph = await app.call("cloudsecurity.run_resource_graph_builder",
     resources=iac_inventory)
 
 # Tier 2+: Add live cloud
 if cloud_config:
-    live_inventory = await app.call("cloudprove.run_cloud_connector",
+    live_inventory = await app.call("cloudsecurity.run_cloud_connector",
         cloud_config=cloud_config)
-    drift_report = await app.call("cloudprove.run_drift_detector",
+    drift_report = await app.call("cloudsecurity.run_drift_detector",
         iac_graph=resource_graph, live_inventory=live_inventory)
 ```
 
@@ -330,7 +330,7 @@ semaphore = asyncio.Semaphore(max_concurrent_hunters)
 
 async def _run_and_enqueue(hunter_name: str) -> None:
     async with semaphore:
-        raw = await app.call(f"cloudprove.run_{hunter_name}_hunter",
+        raw = await app.call(f"cloudsecurity.run_{hunter_name}_hunter",
             repo_path=repo_path, resource_graph=resource_graph, depth=depth)
         await findings_queue.put(raw.findings)
 
@@ -346,7 +346,7 @@ deduped_findings = await consumer
 ## Phase 3: CHAIN (The Differentiator)
 
 ### Purpose
-This is what makes CloudProve fundamentally different from rule-based scanners and from SEC-AF. The CHAIN phase examines individual findings from HUNT and constructs **multi-resource attack paths** — sequences of misconfigurations that, when combined, create exploitable paths through the infrastructure.
+This is what makes CloudSecurity fundamentally different from rule-based scanners and from SEC-AF. The CHAIN phase examines individual findings from HUNT and constructs **multi-resource attack paths** — sequences of misconfigurations that, when combined, create exploitable paths through the infrastructure.
 
 ### Why This Requires Meta-Prompting
 A rule-based scanner can flag "S3 bucket is public" and "Lambda has s3:* permissions" separately. But the dangerous insight is that these two findings, when combined with "the Lambda is triggered by a public API Gateway," create a data exfiltration path. Discovering these combinations requires reasoning about the resource graph — which is exactly what a harness excels at.
@@ -640,19 +640,19 @@ class BudgetConfig(BaseModel):
 
 ## Skills
 
-### `cloudprove.scan` (Tier 1)
+### `cloudsecurity.scan` (Tier 1)
 Static IaC analysis with resource graph reasoning. No cloud credentials needed.
 
 ```bash
-curl -X POST http://localhost:8080/api/v1/execute/async/cloudprove.scan \
+curl -X POST http://localhost:8080/api/v1/execute/async/cloudsecurity.scan \
   -d '{"input": {"repo_url": "https://github.com/org/infrastructure"}}'
 ```
 
-### `cloudprove.prove` (Tier 2+)
+### `cloudsecurity.prove` (Tier 2+)
 Everything in scan + live cloud verification + drift detection + attack path validation.
 
 ```bash
-curl -X POST http://localhost:8080/api/v1/execute/async/cloudprove.prove \
+curl -X POST http://localhost:8080/api/v1/execute/async/cloudsecurity.prove \
   -d '{"input": {
     "repo_url": "https://github.com/org/infrastructure",
     "cloud": {"provider": "aws", "regions": ["us-east-1"]}
@@ -663,9 +663,9 @@ Cloud credentials are read from environment variables (AWS_ACCESS_KEY_ID, etc.),
 
 ---
 
-## Comparison: SEC-AF vs CloudProve-AF
+## Comparison: SEC-AF vs CloudSecurity AF
 
-| | SEC-AF | CloudProve-AF |
+| | SEC-AF | CloudSecurity AF |
 |---|---|---|
 | **Domain** | Application source code | Cloud infrastructure (IaC + live cloud) |
 | **What it reads** | Python, JS, Go, etc. | Terraform, CloudFormation, Kubernetes YAML |
