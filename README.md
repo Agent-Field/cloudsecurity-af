@@ -29,7 +29,7 @@ It connects individual misconfigurations into realistic risk chains, validates w
 
 ## One-Call DX
 
-Trigger it with the `af` CLI (requires af ≥ 0.1.86) — it streams live progress and prints the result:
+Trigger it with the `af` CLI (requires af ≥ 0.1.87) — it streams live progress and prints the result:
 
 ```bash
 af call cloudsecurity.scan --in '{"repo_url": "https://github.com/org/infra-repo"}'
