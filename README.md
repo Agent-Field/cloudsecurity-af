@@ -29,6 +29,14 @@ It connects individual misconfigurations into realistic risk chains, validates w
 
 ## One-Call DX
 
+Trigger it with the `af` CLI (requires af ≥ 0.1.87) — it streams live progress and prints the result:
+
+```bash
+af call cloudsecurity.scan --in '{"repo_url": "https://github.com/org/infra-repo"}'
+```
+
+Prefer raw HTTP? Hit the API directly with curl:
+
 ```bash
 curl -X POST http://localhost:8080/api/v1/execute/async/cloudsecurity.scan \
   -H "Content-Type: application/json" \
