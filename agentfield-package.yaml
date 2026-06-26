@@ -1,0 +1,44 @@
+name: cloudsecurity-af
+version: 0.1.0
+description: Cloud security posture agent node (read-only scans of AWS/GCP/Azure)
+author: Agent-Field
+
+entrypoint:
+  start: python -m cloudsecurity_af.app
+  healthcheck: /health
+
+agent_node:
+  node_id: cloudsecurity-af
+  default_port: 8005
+
+user_environment:
+  required:
+    - name: OPENROUTER_API_KEY
+      description: LLM provider key (OpenRouter)
+      type: secret
+      scope: global
+  optional:
+    - name: AGENTFIELD_SERVER
+      description: Control-plane URL
+      default: http://localhost:8080
+    - name: AGENTFIELD_API_KEY
+      description: Control-plane API key (if auth is enabled)
+      type: secret
+      scope: global
+    - name: HARNESS_MODEL
+      description: Model the harness uses
+      default: openrouter/moonshotai/kimi-k2.5
+    - name: AI_MODEL
+      description: Model for direct AI calls
+      default: openrouter/moonshotai/kimi-k2.5
+    - name: AWS_ACCESS_KEY_ID
+      description: AWS access key for read-only scanning
+      type: secret
+      scope: node
+    - name: AWS_SECRET_ACCESS_KEY
+      description: AWS secret key for read-only scanning
+      type: secret
+      scope: node
+    - name: AWS_DEFAULT_REGION
+      description: Default AWS region to scan
+      default: us-east-1
