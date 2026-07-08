@@ -107,6 +107,25 @@ Recommended operating model:
 
 ## Quick Start
 
+### Install into AgentField (`af install`)
+
+Already running an [AgentField](https://github.com/Agent-Field/agentfield) control plane? Install CloudSecurity straight from GitHub — no clone, no local setup:
+
+```bash
+af install https://github.com/Agent-Field/cloudsecurity-af
+af run cloudsecurity
+```
+
+`af install` clones the repo, provisions an isolated Python environment, and registers the `cloudsecurity` node with your control plane. On first `af run` you're prompted for the required `OPENROUTER_API_KEY` — stored encrypted and reused across every node, so you enter it only once. Then scan some IaC:
+
+```bash
+af call cloudsecurity.scan --in '{"repo_url": "https://github.com/org/infra-repo"}'
+```
+
+New to AgentField? Install the control plane first with `curl -fsSL https://agentfield.ai/install.sh | bash`, or use the Docker option below.
+
+### Local (Docker Compose)
+
 ```bash
 git clone https://github.com/Agent-Field/cloudsecurity-af.git && cd cloudsecurity-af
 cp .env.example .env          # Add OPENROUTER_API_KEY
