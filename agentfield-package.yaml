@@ -1,3 +1,4 @@
+config_version: v1            # manifest schema version (omit = legacy v0)
 name: cloudsecurity-af
 version: 0.1.0
 description: Cloud security posture agent node (read-only scans of AWS/GCP/Azure)
