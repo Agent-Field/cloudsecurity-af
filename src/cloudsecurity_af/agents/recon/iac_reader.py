@@ -19,7 +19,7 @@ class HarnessCapable(Protocol):
     ) -> object: ...
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "recon" / "iac_reader.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "recon" / "iac_reader.txt"
 
 
 async def run_iac_reader(app: HarnessCapable, repo_path: str) -> ResourceInventory:

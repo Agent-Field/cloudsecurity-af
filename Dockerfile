@@ -56,7 +56,6 @@ RUN mkdir -p /home/cloudsecurity/.config/opencode && \
 
 COPY --from=builder /install /usr/local
 COPY src/ /app/src/
-COPY prompts/ /app/prompts/
 
 USER cloudsecurity
 

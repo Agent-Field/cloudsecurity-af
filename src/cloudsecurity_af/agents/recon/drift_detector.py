@@ -18,7 +18,7 @@ class HarnessCapable(Protocol):
     ) -> object: ...
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "recon" / "drift_detector.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "recon" / "drift_detector.txt"
 
 
 async def run_drift_detector(app: HarnessCapable, iac_graph_path: str, cloud_config: dict[str, Any]) -> DriftReport:
