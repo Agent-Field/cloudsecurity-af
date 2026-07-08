@@ -18,7 +18,7 @@ class HarnessCapable(Protocol):
     ) -> object: ...
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "recon" / "cloud_connector.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "recon" / "cloud_connector.txt"
 
 
 async def run_cloud_connector(app: HarnessCapable, cloud_config: dict[str, Any]) -> ResourceInventory:

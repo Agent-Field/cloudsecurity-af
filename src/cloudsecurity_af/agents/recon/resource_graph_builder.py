@@ -19,7 +19,7 @@ class HarnessCapable(Protocol):
     ) -> object: ...
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "recon" / "resource_graph_builder.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "recon" / "resource_graph_builder.txt"
 
 
 async def run_resource_graph_builder(app: HarnessCapable, repo_path: str, inventory_path: str) -> ResourceGraph:

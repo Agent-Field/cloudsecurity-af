@@ -20,7 +20,7 @@ class HarnessCapable(Protocol):
     ) -> object: ...
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "hunt" / "compliance.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "hunt" / "compliance.txt"
 
 
 async def run_compliance_hunter(

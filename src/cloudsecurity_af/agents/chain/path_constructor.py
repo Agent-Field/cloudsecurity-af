@@ -38,7 +38,7 @@ class PathInvestigationPlan(BaseModel):
     investigations: list[ChildInvestigation] = Field(default_factory=list)
 
 
-PROMPT_PATH = Path(__file__).resolve().parents[4] / "prompts" / "chain" / "path_constructor.txt"
+PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "chain" / "path_constructor.txt"
 
 
 def _compact_finding(f: RawFinding) -> dict[str, Any]:
