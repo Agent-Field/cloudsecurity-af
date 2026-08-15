@@ -86,7 +86,7 @@ class ScanConfig(BaseModel):
 
 class AIIntegrationConfig(BaseModel):
     provider: str = Field(
-        default_factory=lambda: os.getenv("CLOUDSECURITY_PROVIDER", os.getenv("HARNESS_PROVIDER", "opencode"))
+        default_factory=lambda: os.getenv("CLOUDSECURITY_PROVIDER", os.getenv("HARNESS_PROVIDER", "aforge"))
     )
     harness_model: str = Field(
         default_factory=lambda: os.getenv(
@@ -102,6 +102,12 @@ class AIIntegrationConfig(BaseModel):
     )
     max_turns: int = Field(default_factory=lambda: int(os.getenv("CLOUDSECURITY_MAX_TURNS", "50")))
     opencode_bin: str = Field(default_factory=lambda: os.getenv("CLOUDSECURITY_OPENCODE_BIN", "opencode"))
+    aforge_bin: str = Field(
+        default_factory=lambda: os.getenv(
+            "CLOUDSECURITY_AFORGE_BIN",
+            os.getenv("AFORGE_BIN", "aforge"),
+        )
+    )
 
     @classmethod
     def from_env(cls) -> AIIntegrationConfig:
@@ -125,6 +131,7 @@ class AIIntegrationConfig(BaseModel):
             "AZURE_SUBSCRIPTION_ID",
         )
         env: dict[str, str] = {key: value for key in env_keys if (value := os.getenv(key))}
+        env["AGENTFIELD_AFORGE_COMMAND"] = os.getenv("AGENTFIELD_AFORGE_COMMAND", "exec")
         xdg = os.getenv("XDG_DATA_HOME") or os.path.join(tempfile.gettempdir(), "opencode-shared-data")
         os.makedirs(xdg, exist_ok=True)
         env["XDG_DATA_HOME"] = xdg

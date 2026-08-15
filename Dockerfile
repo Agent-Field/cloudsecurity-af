@@ -1,3 +1,7 @@
+ARG AFORGE_IMAGE=ghcr.io/agent-field/aforge-v2:chat-v2-exec
+FROM ${AFORGE_IMAGE} AS aforge
+
+
 FROM python:3.11-slim AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -14,7 +18,7 @@ COPY pyproject.toml README.md ./
 COPY src/ src/
 
 RUN pip install --no-cache-dir --prefix=/install \
-    "agentfield>=0.1.0" \
+    "agentfield @ git+https://github.com/Agent-Field/agentfield.git@bfd34426d1bdec3cbbfa946682a22ef0a1b91503#subdirectory=sdk/python" \
     "pydantic>=2.0" \
     "httpx>=0.27" \
     "python-dotenv>=1.0" \
@@ -27,7 +31,8 @@ FROM python:3.11-slim AS runtime
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     AGENTFIELD_SERVER=http://agentfield:8080 \
-    HARNESS_PROVIDER=opencode \
+    HARNESS_PROVIDER=aforge \
+    AGENTFIELD_AFORGE_COMMAND=exec \
     HARNESS_MODEL=openrouter/moonshotai/kimi-k2.5 \
     AI_MODEL=openrouter/moonshotai/kimi-k2.5 \
     PORT=8005 \
@@ -55,6 +60,7 @@ RUN mkdir -p /home/cloudsecurity/.config/opencode && \
     chown -R cloudsecurity:cloudsecurity /home/cloudsecurity/.config
 
 COPY --from=builder /install /usr/local
+COPY --from=aforge /aforge /usr/local/bin/aforge
 COPY src/ /app/src/
 
 USER cloudsecurity

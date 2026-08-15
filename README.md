@@ -326,7 +326,9 @@ See [`docs/GITHUB_ACTIONS.md`](docs/GITHUB_ACTIONS.md) for full Tier 1 and Tier 
 | `AGENTFIELD_SERVER` | No | `http://localhost:8080` | AgentField control plane URL |
 | `NODE_ID` | No | `cloudsecurity` | Agent node identifier |
 | `OPENROUTER_API_KEY` | Yes | - | Model provider credential |
-| `CLOUDSECURITY_PROVIDER` | No | `opencode` | Harness provider override |
+| `CLOUDSECURITY_PROVIDER` | No | `aforge` | Harness provider override; use `opencode` for rollback |
+| `AGENTFIELD_AFORGE_COMMAND` | No | `exec` | AForge headless command (`do` remains an explicit override) |
+| `CLOUDSECURITY_AFORGE_BIN` | No | `aforge` | Path to the AForge executable |
 | `CLOUDSECURITY_MODEL` | No | `openrouter/minimax/minimax-m2.5` | Harness model |
 | `CLOUDSECURITY_AI_MODEL` | No | `CLOUDSECURITY_MODEL`/`AI_MODEL` fallback | `.ai()` gate model |
 | `CLOUDSECURITY_MAX_TURNS` | No | `50` | Max turns per harness call |
