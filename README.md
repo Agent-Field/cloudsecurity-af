@@ -344,10 +344,10 @@ verifies its SHA-256 against the release `checksums.txt` before installing it to
 | Build arg | Default | Purpose |
 |---|---|---|
 | `AFORGE_BASE_URL` | `https://agentfield.ai/downloads/aforge` | Download host serving `<version>/aforge-linux-<arch>.gz` and `<version>/checksums.txt` |
-| `AFORGE_VERSION` | `build-9b3ff482de3f` | Released AForge build to install |
+| `AFORGE_VERSION` | `v0.1.0` | Released AForge version to install |
 
 ```bash
-docker build --build-arg AFORGE_VERSION=build-9b3ff482de3f -t cloudsecurity-af .
+docker build --build-arg AFORGE_VERSION=v0.1.0 -t cloudsecurity-af .
 ```
 
 `docker compose build` reads the same two values from the environment (or `.env`),
