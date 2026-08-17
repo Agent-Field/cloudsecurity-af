@@ -37,6 +37,39 @@ def test_opencode_remains_an_explicit_rollback(monkeypatch: pytest.MonkeyPatch) 
     assert AIIntegrationConfig.from_env().provider == "opencode"
 
 
+def test_aforge_bin_is_overridable(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("CLOUDSECURITY_AFORGE_BIN", raising=False)
+    monkeypatch.setenv("AFORGE_BIN", "/opt/aforge/bin/aforge")
+
+    assert AIIntegrationConfig.from_env().aforge_bin == "/opt/aforge/bin/aforge"
+
+    monkeypatch.setenv("CLOUDSECURITY_AFORGE_BIN", "/usr/local/bin/aforge")
+
+    assert AIIntegrationConfig.from_env().aforge_bin == "/usr/local/bin/aforge"
+
+
+def test_installed_sdk_supports_the_aforge_harness(monkeypatch: pytest.MonkeyPatch) -> None:
+    """The pinned agentfield floor must accept the provider/bin this agent wires up."""
+    from agentfield import HarnessConfig
+
+    for key in ("CLOUDSECURITY_PROVIDER", "HARNESS_PROVIDER", "CLOUDSECURITY_AFORGE_BIN", "AFORGE_BIN"):
+        monkeypatch.delenv(key, raising=False)
+    config = AIIntegrationConfig.from_env()
+
+    harness = HarnessConfig(
+        provider=config.provider,
+        model=config.harness_model,
+        max_turns=config.max_turns,
+        env=config.provider_env(),
+        opencode_bin=config.opencode_bin,
+        aforge_bin=config.aforge_bin,
+        permission_mode="auto",
+    )
+
+    assert harness.provider == "aforge"
+    assert harness.aforge_bin == "aforge"
+
+
 class TestDepthProfile:
     def test_enum_values(self) -> None:
         assert DepthProfile.QUICK.value == "quick"

@@ -327,13 +327,31 @@ See [`docs/GITHUB_ACTIONS.md`](docs/GITHUB_ACTIONS.md) for full Tier 1 and Tier 
 | `NODE_ID` | No | `cloudsecurity` | Agent node identifier |
 | `OPENROUTER_API_KEY` | Yes | - | Model provider credential |
 | `CLOUDSECURITY_PROVIDER` | No | `aforge` | Harness provider override; use `opencode` for rollback |
-| `AGENTFIELD_AFORGE_COMMAND` | No | `exec` | AForge headless command (`do` remains an explicit override) |
-| `CLOUDSECURITY_AFORGE_BIN` | No | `aforge` | Path to the AForge executable |
+| `AGENTFIELD_AFORGE_COMMAND` | No | `exec` | AForge headless command. Forward-looking: the shipped SDK always runs `aforge exec` |
+| `CLOUDSECURITY_AFORGE_BIN` | No | `aforge` | Path to the AForge executable (falls back to `AFORGE_BIN`) |
 | `CLOUDSECURITY_MODEL` | No | `openrouter/minimax/minimax-m2.5` | Harness model |
 | `CLOUDSECURITY_AI_MODEL` | No | `CLOUDSECURITY_MODEL`/`AI_MODEL` fallback | `.ai()` gate model |
 | `CLOUDSECURITY_MAX_TURNS` | No | `50` | Max turns per harness call |
 | `CLOUDSECURITY_REPO_PATH` | No | cwd | Local repository path fallback |
 | `AGENT_CALLBACK_URL` | No | `http://127.0.0.1:8004` | Agent callback endpoint |
+
+### AForge CLI in the Docker image
+
+The image downloads the released AForge CLI at build time, decompresses it, and
+verifies its SHA-256 against the release `checksums.txt` before installing it to
+`/usr/local/bin/aforge`. Two build args control where it comes from:
+
+| Build arg | Default | Purpose |
+|---|---|---|
+| `AFORGE_BASE_URL` | `https://agentfield.ai/downloads/aforge` | Download host serving `<version>/aforge-linux-<arch>.gz` and `<version>/checksums.txt` |
+| `AFORGE_VERSION` | `build-9b3ff482de3f` | Released AForge build to install |
+
+```bash
+docker build --build-arg AFORGE_VERSION=build-9b3ff482de3f -t cloudsecurity-af .
+```
+
+`docker compose build` reads the same two values from the environment (or `.env`),
+so a mirror can be selected without editing the Dockerfile.
 
 ### Core `CloudSecurityInput` Fields
 
