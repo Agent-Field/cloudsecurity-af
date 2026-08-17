@@ -1,5 +1,35 @@
-ARG AFORGE_IMAGE=ghcr.io/agent-field/aforge-v2:chat-v2-exec
-FROM ${AFORGE_IMAGE} AS aforge
+# The AForge CLI is fetched from the public release download host rather than
+# pulled from a container registry, so the build needs no registry credentials.
+# Both ARGs are overridable (--build-arg) to point at a mirror or a newer build.
+ARG AFORGE_BASE_URL=https://agentfield.ai/downloads/aforge
+ARG AFORGE_VERSION=build-9b3ff482de3f
+
+FROM debian:bookworm-slim AS aforge
+
+ARG AFORGE_BASE_URL
+ARG AFORGE_VERSION
+ARG TARGETARCH
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download aforge-linux-<arch>.gz, decompress it, and verify the *decompressed*
+# binary against the release checksums file (which hashes the raw binaries).
+RUN set -eux; \
+    arch="${TARGETARCH:-$(dpkg --print-architecture)}"; \
+    mkdir -p /out; \
+    cd /out; \
+    curl -fsSL "${AFORGE_BASE_URL}/${AFORGE_VERSION}/aforge-linux-${arch}.gz" -o aforge.gz; \
+    gunzip -c aforge.gz > aforge; \
+    rm aforge.gz; \
+    curl -fsSL "${AFORGE_BASE_URL}/${AFORGE_VERSION}/checksums.txt" -o checksums.txt; \
+    grep " aforge-linux-${arch}$" checksums.txt | sed 's/  aforge-linux-.*/  aforge/' > aforge.sha256; \
+    test -s aforge.sha256; \
+    sha256sum -c aforge.sha256; \
+    rm checksums.txt aforge.sha256; \
+    chmod +x aforge
 
 
 FROM python:3.11-slim AS builder
@@ -60,7 +90,7 @@ RUN mkdir -p /home/cloudsecurity/.config/opencode && \
     chown -R cloudsecurity:cloudsecurity /home/cloudsecurity/.config
 
 COPY --from=builder /install /usr/local
-COPY --from=aforge /aforge /usr/local/bin/aforge
+COPY --from=aforge /out/aforge /usr/local/bin/aforge
 COPY src/ /app/src/
 
 USER cloudsecurity
