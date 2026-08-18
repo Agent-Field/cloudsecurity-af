@@ -327,7 +327,7 @@ See [`docs/GITHUB_ACTIONS.md`](docs/GITHUB_ACTIONS.md) for full Tier 1 and Tier 
 | `NODE_ID` | No | `cloudsecurity` | Agent node identifier |
 | `OPENROUTER_API_KEY` | Yes | - | Model provider credential |
 | `CLOUDSECURITY_PROVIDER` | No | `aforge` | Harness provider override; use `opencode` for rollback |
-| `AGENTFIELD_AFORGE_COMMAND` | No | `exec` | AForge headless command. Forward-looking: the shipped SDK always runs `aforge exec` |
+| `AGENTFIELD_AFORGE_COMMAND` | No | `exec` | AForge headless command the SDK runs: `exec` (default) or `do`. Read by agentfield>=0.1.130 |
 | `CLOUDSECURITY_AFORGE_BIN` | No | `aforge` | Path to the AForge executable (falls back to `AFORGE_BIN`) |
 | `CLOUDSECURITY_MODEL` | No | `openrouter/minimax/minimax-m2.5` | Harness model |
 | `CLOUDSECURITY_AI_MODEL` | No | `CLOUDSECURITY_MODEL`/`AI_MODEL` fallback | `.ai()` gate model |
