@@ -1,3 +1,37 @@
+# The AForge CLI is fetched from the public release download host rather than
+# pulled from a container registry, so the build needs no registry credentials.
+# Both ARGs are overridable (--build-arg) to point at a mirror or a newer build.
+ARG AFORGE_BASE_URL=https://agentfield.ai/downloads/aforge
+ARG AFORGE_VERSION=v0.1.0
+
+FROM debian:bookworm-slim AS aforge
+
+ARG AFORGE_BASE_URL
+ARG AFORGE_VERSION
+ARG TARGETARCH
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download aforge-linux-<arch>.gz, decompress it, and verify the *decompressed*
+# binary against the release checksums file (which hashes the raw binaries).
+RUN set -eux; \
+    arch="${TARGETARCH:-$(dpkg --print-architecture)}"; \
+    mkdir -p /out; \
+    cd /out; \
+    curl -fsSL "${AFORGE_BASE_URL}/${AFORGE_VERSION}/aforge-linux-${arch}.gz" -o aforge.gz; \
+    gunzip -c aforge.gz > aforge; \
+    rm aforge.gz; \
+    curl -fsSL "${AFORGE_BASE_URL}/${AFORGE_VERSION}/checksums.txt" -o checksums.txt; \
+    grep " aforge-linux-${arch}$" checksums.txt | sed 's/  aforge-linux-.*/  aforge/' > aforge.sha256; \
+    test -s aforge.sha256; \
+    sha256sum -c aforge.sha256; \
+    rm checksums.txt aforge.sha256; \
+    chmod +x aforge
+
+
 FROM python:3.11-slim AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -14,7 +48,7 @@ COPY pyproject.toml README.md ./
 COPY src/ src/
 
 RUN pip install --no-cache-dir --prefix=/install \
-    "agentfield>=0.1.0" \
+    "agentfield>=0.1.130" \
     "pydantic>=2.0" \
     "httpx>=0.27" \
     "python-dotenv>=1.0" \
@@ -27,7 +61,8 @@ FROM python:3.11-slim AS runtime
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     AGENTFIELD_SERVER=http://agentfield:8080 \
-    HARNESS_PROVIDER=opencode \
+    HARNESS_PROVIDER=aforge \
+    AGENTFIELD_AFORGE_COMMAND=exec \
     HARNESS_MODEL=openrouter/moonshotai/kimi-k2.5 \
     AI_MODEL=openrouter/moonshotai/kimi-k2.5 \
     PORT=8005 \
@@ -55,6 +90,7 @@ RUN mkdir -p /home/cloudsecurity/.config/opencode && \
     chown -R cloudsecurity:cloudsecurity /home/cloudsecurity/.config
 
 COPY --from=builder /install /usr/local
+COPY --from=aforge /out/aforge /usr/local/bin/aforge
 COPY src/ /app/src/
 
 USER cloudsecurity
