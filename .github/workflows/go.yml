@@ -1,0 +1,78 @@
+# CI for the Go node under go/. The Python tree has no workflow in this repo, so
+# this file is scoped to the Go port only: it runs the exact gate the port
+# contract defines (go/docs/DESIGN.md §0.4) plus a Docker build of the image the
+# compose add-on ships.
+#
+# The paths filter is NOT just go/**: go/packaging_test.go asserts the Go
+# packaging against the Python stack's own files, so those are inputs to this
+# gate as well. go/packaging_test.go's own
+# TestPackaging_CIWatchesEveryFileTheGateReads keeps the two lists in sync.
+name: Go
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "go/**"
+      - "docker-compose.go.yml"
+      - ".github/workflows/go.yml"
+      # go/packaging_test.go derives its expectations from the PYTHON stack, so
+      # every file it reads has to trigger this workflow — otherwise a change to
+      # one of them merges with the parity gate never running, and the breakage
+      # surfaces later as a `premise broken` failure on an unrelated go/** PR.
+      # go/Dockerfile's aforge stage is a verbatim copy of the root one, so the
+      # docker-build job needs them too.
+      - "Dockerfile"
+      - "docker-compose.yml"
+      - "README.md"
+      - "agentfield-package.yaml"
+      - "src/cloudsecurity_af/app.py"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "go/**"
+      - "docker-compose.go.yml"
+      - ".github/workflows/go.yml"
+      # go/packaging_test.go derives its expectations from the PYTHON stack, so
+      # every file it reads has to trigger this workflow — otherwise a change to
+      # one of them merges with the parity gate never running, and the breakage
+      # surfaces later as a `premise broken` failure on an unrelated go/** PR.
+      # go/Dockerfile's aforge stage is a verbatim copy of the root one, so the
+      # docker-build job needs them too.
+      - "Dockerfile"
+      - "docker-compose.yml"
+      - "README.md"
+      - "agentfield-package.yaml"
+      - "src/cloudsecurity_af/app.py"
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: go
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          # Track go/go.mod's own directive so a bump lands in one place.
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - name: Build
+        run: go build ./...
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test ./...
+      - name: Gofmt
+        run: test -z "$(gofmt -l .)"
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The Dockerfile COPYs go/go.mod and go/, so the build context is the
+      # repo root — exactly how docker-compose.go.yml builds it.
+      - name: Build Docker image
+        run: docker build -f go/Dockerfile -t cloudsecurity-af-go:test .

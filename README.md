@@ -113,16 +113,24 @@ Already running an [AgentField](https://github.com/Agent-Field/agentfield) contr
 
 ```bash
 af install https://github.com/Agent-Field/cloudsecurity-af
-af run cloudsecurity
+af run cloudsecurity-af
 ```
 
-`af install` clones the repo, provisions an isolated Python environment, and registers the `cloudsecurity` node with your control plane. On first `af run` you're prompted for the required `OPENROUTER_API_KEY` — stored encrypted and reused across every node, so you enter it only once. Then scan some IaC:
+`af install` follows the repository manifest to the maintained Go package and registers it as the `cloudsecurity` node with your control plane — one static binary, no per-node virtualenv to build. (`af run` takes the PACKAGE name, `cloudsecurity-af`; `af call` takes the node id, `cloudsecurity`.) If an older Python `cloudsecurity` is installed, it is replaced in place, retaining the same node id, triggers, and node-scoped secrets. On first `af run` you're prompted for the required `OPENROUTER_API_KEY` — stored encrypted and reused across every node, so you enter it only once. Then scan some IaC:
 
 ```bash
 af call cloudsecurity.scan --in '{"repo_url": "https://github.com/org/infra-repo"}'
 ```
 
 New to AgentField? Install the control plane first with `curl -fsSL https://agentfield.ai/install.sh | bash`, or use the Docker option below.
+
+To install the Python node deliberately, clone this repository and install the
+checkout as a local path. Local-path installs do not follow `superseded_by`:
+
+```bash
+git clone https://github.com/Agent-Field/cloudsecurity-af
+af install ./cloudsecurity-af
+```
 
 ### Local (Docker Compose)
 
@@ -385,6 +393,30 @@ Package metadata:
 - Python: `>=3.11`
 - License: Apache-2.0
 - Core deps: `agentfield`, `pydantic>=2.0`, `pyhcl2>=2.0`
+
+## Go implementation
+
+The maintained node lives under [`go/`](go/README.md), and installing the bare
+repository URL gives you this implementation as the `cloudsecurity` node.
+(`af run` assigns a free port from 8001 and exports it as `PORT`; `8015` is the
+binary's own default, which is what a bare `go run`, `make run` or
+`docker-compose.go.yml` gives you — pass `af run cloudsecurity-af --port 8015`
+to pin it.) It registers the same reasoners under the same names,
+drives the same control-plane DAG, and reads the same environment variables —
+one static binary, no per-node virtualenv to build. The Python implementation
+remains available through `python -m cloudsecurity_af.app`, the root Docker
+Compose stack, or a local-path install (`af install ./cloudsecurity-af`), which
+does not follow the redirect.
+
+```bash
+docker compose up -d                          # Python stack (control plane + cloudsecurity-af :8005)
+docker compose -f docker-compose.go.yml up -d # adds the Go node as cloudsecurity-go :8015
+```
+
+The Go add-on Compose file uses the distinct node id `cloudsecurity-go` only so
+both implementations can run against one control plane during a changeover.
+Build, run, Docker/compose and environment docs live in
+[`go/README.md`](go/README.md).
 
 ## Open Core Model
 

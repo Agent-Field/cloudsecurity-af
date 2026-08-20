@@ -4,12 +4,35 @@ version: 0.1.0
 description: Cloud security posture agent node (read-only scans of AWS/GCP/Azure)
 author: Agent-Field
 
+# The Go node in go/ is the maintained CloudSecurity node: same reasoners, same
+# interface, one static binary, no per-node venv to build. Installing this repo
+# installs that instead — so
+# `af install https://github.com/Agent-Field/cloudsecurity-af` is the one thing a
+# user has to know, before and after the switch.
+#
+# go/ declares this same name deliberately, so the switch is a replacement in
+# place: same node id, same triggers, node-scoped secrets kept. Only one of the
+# two can be installed at a time, which is the point.
+#
+# This manifest stays here as the redirect, so the Python node is still what
+# `python -m cloudsecurity_af.app` and docker-compose run. The redirect is a
+# git-install behaviour only: to install this node deliberately, clone the repo
+# and install the checkout as a local path.
+superseded_by: https://github.com/Agent-Field/cloudsecurity-af//go
+
 entrypoint:
   start: python -m cloudsecurity_af.app
   healthcheck: /health
 
 agent_node:
-  node_id: cloudsecurity-af
+  # `cloudsecurity`, not `cloudsecurity-af`: src/cloudsecurity_af/app.py uses
+  # `NODE_ID = os.getenv("NODE_ID", "cloudsecurity")`, so that is the id the
+  # process registers and reports on /health, and every reasoner target in
+  # reasoners/phases.py and orchestrator.py is f"{NODE_ID}.<reasoner>".
+  # `af run` compares the manifest's node_id against /health's node_id and
+  # kills the process when they differ, so the stale `cloudsecurity-af` broke
+  # the local-path install documented above.
+  node_id: cloudsecurity
   default_port: 8005
 
 user_environment:

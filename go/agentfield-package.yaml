@@ -1,0 +1,72 @@
+config_version: v1
+# This is THE CloudSecurity-AF node. It deliberately shares the root manifest's
+# name: the root declares `superseded_by` pointing here, so installing this repo
+# installs this package, and a user who already has the Python cloudsecurity-af
+# gets it replaced in place — same name, same node id, same triggers, secrets
+# kept. Installing the root as a local path (the documented escape hatch) is the
+# one way to get the Python node, and it necessarily takes this name over.
+name: cloudsecurity-af
+version: 0.1.0
+description: AI-Native Cloud Infrastructure Security Scanner
+author: Agent-Field
+language: go                            # explicit (also auto-detected from go/go.mod)
+
+entrypoint:
+  build: ./cmd/cloudsecurity-af
+  start: bin/cloudsecurity-af
+  healthcheck: /health
+
+agent_node:
+  # `cloudsecurity`, NOT `cloudsecurity-af` — the package NAME and the node id
+  # differ. src/cloudsecurity_af/app.py uses
+  # `NODE_ID = os.getenv("NODE_ID", "cloudsecurity")`, every reasoner target in
+  # reasoners/phases.py and orchestrator.py is built as
+  # f"{NODE_ID}.<reasoner>", and the README's own examples call
+  # `cloudsecurity.scan`. Both manifests state the id the process actually
+  # registers, so `af call cloudsecurity.scan` resolves after an install and
+  # `af run`'s /health identity check passes.
+  node_id: cloudsecurity
+  # 8015 rather than the Python node's 8005: during the changeover both may be
+  # running, and triggers resolve by node id, not port.
+  default_port: 8015
+
+# Same keys as the root manifest — the Go node reads the same environment.
+user_environment:
+  required:
+    - name: OPENROUTER_API_KEY
+      description: LLM provider key (OpenRouter)
+      type: secret
+      scope: global
+  optional:
+    - name: AGENTFIELD_SERVER
+      description: Control-plane URL
+      default: http://localhost:8080
+    - name: AGENTFIELD_API_KEY
+      description: Control-plane API key (if auth is enabled)
+      type: secret
+      scope: global
+    - name: HARNESS_PROVIDER
+      description: Coding-agent harness provider (aforge by default; opencode for rollback)
+      default: aforge
+    - name: AGENTFIELD_AFORGE_COMMAND
+      description: AForge headless command
+      default: exec
+    - name: CLOUDSECURITY_AFORGE_BIN
+      description: Optional path to the AForge binary (defaults to aforge on PATH)
+    - name: HARNESS_MODEL
+      description: Model the harness uses
+      default: openrouter/moonshotai/kimi-k2.5
+    - name: AI_MODEL
+      description: Model for direct AI calls
+      default: openrouter/moonshotai/kimi-k2.5
+    - name: AWS_ACCESS_KEY_ID
+      description: AWS access key for read-only scanning
+      type: secret
+      scope: node
+    - name: AWS_SECRET_ACCESS_KEY
+      description: AWS secret key for read-only scanning
+      type: secret
+      scope: node
+    - name: AWS_DEFAULT_REGION
+      description: Default AWS region to scan
+      default: us-east-1
