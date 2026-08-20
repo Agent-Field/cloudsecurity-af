@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "ChildInvestigation": {
+      "additionalProperties": false,
+      "properties": {
+        "child_prompt": {
+          "title": "Child Prompt",
+          "type": "string"
+        },
+        "findings_involved": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Findings Involved",
+          "type": "array"
+        },
+        "rationale": {
+          "default": "",
+          "title": "Rationale",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "child_prompt",
+        "findings_involved",
+        "rationale",
+        "title"
+      ],
+      "title": "ChildInvestigation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "investigations": {
+      "items": {
+        "$ref": "#/$defs/ChildInvestigation"
+      },
+      "title": "Investigations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "investigations"
+  ],
+  "title": "PathInvestigationPlan",
+  "type": "object"
+}

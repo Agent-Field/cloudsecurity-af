@@ -1,0 +1,4802 @@
+[
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 8.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 9.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 6.3
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 8.19
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.85
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 9.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.68
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.2
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.36
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.34
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.68
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 8.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.95
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 7.73
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.25
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.53
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 8.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.4
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.42
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 6.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 8.84
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.7
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.21
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.4
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.42
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.9
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.37
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 9.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.28
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.25
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "critical",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 8.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 7.28
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 8.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.16
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 6.4
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 8.32
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.16
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 7.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 9.36
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.04
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.55
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.68
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.36
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.88
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.74
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.76
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.49
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.44
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.87
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.88
+  },
+  {
+    "severity": "high",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.74
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 6.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 8.84
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.76
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.19
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 9.52
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.4
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.42
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 6.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 8.84
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.72
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.54
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.44
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.07
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.36
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.77
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.72
+  },
+  {
+    "severity": "high",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.54
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 7.28
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.92
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.1
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.84
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.28
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.24
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.91
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.48
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.82
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.12
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.46
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.24
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.91
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 8.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.28
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.16
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.2
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.16
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.12
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.46
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.24
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.91
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.6
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.08
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.64
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.83
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.28
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.66
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.32
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.42
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.64
+  },
+  {
+    "severity": "high",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.83
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 10.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.2
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.85
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 9.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.15
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.09
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 6.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 8.19
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.93
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.85
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.8
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.34
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.6
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.68
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.9
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.17
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.8
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.34
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 4.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 5.53
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 8.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 10.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.97
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.87
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.95
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.73
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.12
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.76
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.53
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.7
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.21
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.42
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.85
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.11
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.7
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.21
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 7.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 9.1
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.45
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.18
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.9
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 6.37
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.75
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.27
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.8
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.64
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 6.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.75
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.27
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.55
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.62
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.25
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.65
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.5
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.65
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "medium",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 3.0
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.9
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 6.0
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.8
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.1
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.73
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.46
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.5
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.95
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.0
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.9
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.56
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.4
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.12
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.6
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.56
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.7
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.51
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.4
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 7.02
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.89
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.46
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.91
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.35
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.76
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.7
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.51
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.08
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.4
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.16
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.81
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.54
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.7
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.08
+  },
+  {
+    "severity": "low",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.4
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.55
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 3.31
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 5.1
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 6.63
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.32
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.57
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 4.64
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.27
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.66
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.55
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.31
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.02
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.33
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.04
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.65
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.51
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.66
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.02
+  },
+  {
+    "severity": "low",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.33
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 2.1
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 2.73
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 4.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 5.46
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.47
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.91
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.94
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.82
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.05
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.36
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.1
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.73
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.84
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.09
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.68
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.18
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.42
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.55
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.84
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.09
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.5
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.95
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 3.0
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 3.9
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.05
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.36
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.1
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.73
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.75
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.98
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.5
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.95
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.6
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.56
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.3
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.39
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.6
+  },
+  {
+    "severity": "low",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.6
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.2
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.56
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.42
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.55
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.84
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.09
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.3
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.39
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.6
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.78
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.24
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.31
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.48
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.62
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.12
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.16
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.24
+  },
+  {
+    "severity": "low",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.31
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 2.0
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.6
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.5
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.65
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.8
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.04
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "live_verified",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.9
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.17
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.8
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.34
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.63
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.82
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.64
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.45
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.59
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.9
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.17
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.36
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.47
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.72
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.94
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.18
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.23
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.36
+  },
+  {
+    "severity": "info",
+    "evidence_method": "iam_simulated",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.47
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.85
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 1.1
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.7
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 2.21
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.59
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.77
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.19
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.55
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.42
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.55
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.85
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.1
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.34
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.44
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.68
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.88
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.17
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.22
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.34
+  },
+  {
+    "severity": "info",
+    "evidence_method": "drift_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.44
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.82
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.49
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.64
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.98
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.27
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.35
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.45
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.28
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.36
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.56
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.73
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.14
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.18
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.28
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_graph_confirmed",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.36
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.5
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.65
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 1.0
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 1.3
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.35
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.45
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.7
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.91
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.25
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.33
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.5
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.65
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.1
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.13
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "info",
+    "evidence_method": "static_config_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.4
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "internet_facing",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.52
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.14
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.18
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.28
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "vpc_internal",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.36
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.1
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.13
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.2
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "private_subnet",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.26
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.08
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.1
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.16
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_iam_auth",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.21
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": false,
+    "score": 0.04
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": false,
+    "has_drift": true,
+    "score": 0.05
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": false,
+    "score": 0.08
+  },
+  {
+    "severity": "info",
+    "evidence_method": "heuristic_match",
+    "exposure": "requires_admin",
+    "has_attack_path": true,
+    "has_drift": true,
+    "score": 0.1
+  }
+]

@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "AffectedResource": {
+      "additionalProperties": false,
+      "description": "A specific resource attribute that is misconfigured.",
+      "properties": {
+        "attribute": {
+          "description": "The specific attribute that is misconfigured",
+          "title": "Attribute",
+          "type": "string"
+        },
+        "current_value": {
+          "default": "",
+          "title": "Current Value",
+          "type": "string"
+        },
+        "recommended_value": {
+          "default": "",
+          "title": "Recommended Value",
+          "type": "string"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "attribute",
+        "current_value",
+        "recommended_value",
+        "resource_id",
+        "resource_type"
+      ],
+      "title": "AffectedResource",
+      "type": "object"
+    },
+    "Confidence": {
+      "description": "Confidence level for provisional findings.",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "title": "Confidence",
+      "type": "string"
+    },
+    "RawFinding": {
+      "additionalProperties": false,
+      "description": "Potential misconfiguration or policy violation from a hunter.",
+      "properties": {
+        "benchmark_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "CIS control ID, SOC2 control, etc.",
+          "title": "Benchmark Id"
+        },
+        "category": {
+          "description": "Finding category from FindingCategory enum",
+          "title": "Category",
+          "type": "string"
+        },
+        "confidence": {
+          "$ref": "#/$defs/Confidence",
+          "default": "medium"
+        },
+        "config_snippet": {
+          "default": "",
+          "title": "Config Snippet",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "estimated_severity": {
+          "$ref": "#/$defs/Severity",
+          "default": "medium"
+        },
+        "fingerprint": {
+          "title": "Fingerprint",
+          "type": "string"
+        },
+        "hunter_strategy": {
+          "description": "iam | network | data | secrets | compute | logging | compliance",
+          "title": "Hunter Strategy",
+          "type": "string"
+        },
+        "iac_file": {
+          "default": "",
+          "title": "Iac File",
+          "type": "string"
+        },
+        "iac_line": {
+          "default": 0,
+          "title": "Iac Line",
+          "type": "integer"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/$defs/AffectedResource"
+          },
+          "title": "Resources",
+          "type": "array"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "benchmark_id",
+        "category",
+        "confidence",
+        "config_snippet",
+        "description",
+        "estimated_severity",
+        "fingerprint",
+        "hunter_strategy",
+        "iac_file",
+        "iac_line",
+        "id",
+        "resources",
+        "title"
+      ],
+      "title": "RawFinding",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "info"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Deduplicated and correlated HUNT phase output.",
+  "properties": {
+    "deduplicated_count": {
+      "default": 0,
+      "title": "Deduplicated Count",
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/RawFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "hunt_duration_seconds": {
+      "default": 0.0,
+      "title": "Hunt Duration Seconds",
+      "type": "number"
+    },
+    "strategies_run": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Strategies Run",
+      "type": "array"
+    },
+    "total_raw": {
+      "default": 0,
+      "title": "Total Raw",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "deduplicated_count",
+    "findings",
+    "hunt_duration_seconds",
+    "strategies_run",
+    "total_raw"
+  ],
+  "title": "HuntResult",
+  "type": "object"
+}

@@ -1,0 +1,38 @@
+{
+  "description": "Inventory pointer from IaC reader harness.",
+  "properties": {
+    "iac_type": {
+      "default": "terraform",
+      "description": "terraform | cloudformation | kubernetes",
+      "title": "Iac Type",
+      "type": "string"
+    },
+    "iac_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Iac Version"
+    },
+    "inventory_saved_path": {
+      "description": "Absolute path to the generated inventory.json file",
+      "title": "Inventory Saved Path",
+      "type": "string"
+    },
+    "total_resources": {
+      "default": 0,
+      "title": "Total Resources",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "inventory_saved_path"
+  ],
+  "title": "ResourceInventory",
+  "type": "object"
+}

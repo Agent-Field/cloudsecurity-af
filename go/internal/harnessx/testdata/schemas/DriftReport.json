@@ -1,0 +1,113 @@
+{
+  "$defs": {
+    "ConfigDiff": {
+      "description": "Single attribute difference between IaC and live state.",
+      "properties": {
+        "attribute": {
+          "title": "Attribute",
+          "type": "string"
+        },
+        "iac_value": {
+          "default": null,
+          "title": "Iac Value"
+        },
+        "live_value": {
+          "default": null,
+          "title": "Live Value"
+        },
+        "security_impact": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Security Impact"
+        }
+      },
+      "required": [
+        "attribute"
+      ],
+      "title": "ConfigDiff",
+      "type": "object"
+    },
+    "DriftedResource": {
+      "description": "A resource that has drifted from its IaC declaration.",
+      "properties": {
+        "diffs": {
+          "items": {
+            "$ref": "#/$defs/ConfigDiff"
+          },
+          "title": "Diffs",
+          "type": "array"
+        },
+        "iac_config": {
+          "additionalProperties": true,
+          "title": "Iac Config",
+          "type": "object"
+        },
+        "live_config": {
+          "additionalProperties": true,
+          "title": "Live Config",
+          "type": "object"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "security_relevant": {
+          "default": false,
+          "title": "Security Relevant",
+          "type": "boolean"
+        },
+        "significance": {
+          "default": "medium",
+          "description": "critical | high | medium | low",
+          "title": "Significance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource_id",
+        "resource_type"
+      ],
+      "title": "DriftedResource",
+      "type": "object"
+    }
+  },
+  "description": "Complete drift analysis between IaC and live cloud.",
+  "properties": {
+    "cloud_only_resources": {
+      "description": "Deployed but not in IaC (shadow IT)",
+      "items": {
+        "type": "string"
+      },
+      "title": "Cloud Only Resources",
+      "type": "array"
+    },
+    "drifted_resources": {
+      "items": {
+        "$ref": "#/$defs/DriftedResource"
+      },
+      "title": "Drifted Resources",
+      "type": "array"
+    },
+    "iac_only_resources": {
+      "description": "Declared in IaC but not deployed",
+      "items": {
+        "type": "string"
+      },
+      "title": "Iac Only Resources",
+      "type": "array"
+    }
+  },
+  "title": "DriftReport",
+  "type": "object"
+}

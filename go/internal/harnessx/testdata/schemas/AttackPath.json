@@ -1,0 +1,151 @@
+{
+  "$defs": {
+    "AttackStep": {
+      "description": "One step in a multi-resource attack path.",
+      "properties": {
+        "action": {
+          "description": "What the attacker does at this step",
+          "title": "Action",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "permission_used": {
+          "description": "The specific permission or config that enables this step",
+          "title": "Permission Used",
+          "type": "string"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "step_number": {
+          "title": "Step Number",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "step_number",
+        "resource_id",
+        "resource_type",
+        "action",
+        "permission_used"
+      ],
+      "title": "AttackStep",
+      "type": "object"
+    },
+    "BlastRadius": {
+      "description": "Impact assessment for a confirmed attack path.",
+      "properties": {
+        "compute_reachable": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Compute Reachable",
+          "type": "array"
+        },
+        "data_stores_reachable": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Data Stores Reachable",
+          "type": "array"
+        },
+        "estimated_data_volume": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Estimated Data Volume"
+        },
+        "services_affected": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Services Affected",
+          "type": "array"
+        }
+      },
+      "title": "BlastRadius",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "info"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "description": "A multi-resource attack path assembled from individual findings.",
+  "properties": {
+    "blast_radius": {
+      "$ref": "#/$defs/BlastRadius"
+    },
+    "combined_severity": {
+      "$ref": "#/$defs/Severity",
+      "default": "high"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "entry_point": {
+      "description": "Public-facing resource where attack begins",
+      "title": "Entry Point",
+      "type": "string"
+    },
+    "findings_involved": {
+      "description": "IDs of HUNT findings that compose this path",
+      "items": {
+        "type": "string"
+      },
+      "title": "Findings Involved",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/AttackStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "target": {
+      "description": "What the attacker ultimately reaches",
+      "title": "Target",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "entry_point",
+    "target"
+  ],
+  "title": "AttackPath",
+  "type": "object"
+}

@@ -1,0 +1,93 @@
+{
+  "$defs": {
+    "IaCDiff": {
+      "description": "A unified diff patch for remediation.",
+      "properties": {
+        "end_line": {
+          "default": 0,
+          "title": "End Line",
+          "type": "integer"
+        },
+        "file_path": {
+          "title": "File Path",
+          "type": "string"
+        },
+        "original_lines": {
+          "title": "Original Lines",
+          "type": "string"
+        },
+        "patched_lines": {
+          "title": "Patched Lines",
+          "type": "string"
+        },
+        "start_line": {
+          "default": 0,
+          "title": "Start Line",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "file_path",
+        "original_lines",
+        "patched_lines"
+      ],
+      "title": "IaCDiff",
+      "type": "object"
+    }
+  },
+  "description": "Actionable IaC fix for a finding.",
+  "properties": {
+    "alternative_approaches": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Alternative Approaches",
+      "type": "array"
+    },
+    "breaking_change": {
+      "default": false,
+      "title": "Breaking Change",
+      "type": "boolean"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "diffs": {
+      "items": {
+        "$ref": "#/$defs/IaCDiff"
+      },
+      "title": "Diffs",
+      "type": "array"
+    },
+    "downtime_estimate": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "none | seconds | minutes | requires_maintenance_window",
+      "title": "Downtime Estimate"
+    },
+    "effort": {
+      "default": "moderate",
+      "description": "trivial | moderate | significant",
+      "title": "Effort",
+      "type": "string"
+    },
+    "finding_id": {
+      "default": "",
+      "title": "Finding Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "description"
+  ],
+  "title": "RemediationSuggestion",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Graph pointer from Resource Graph Builder harness.",
+  "properties": {
+    "graph_saved_path": {
+      "description": "Absolute path to the generated graph.json file",
+      "title": "Graph Saved Path",
+      "type": "string"
+    },
+    "total_edges": {
+      "default": 0,
+      "title": "Total Edges",
+      "type": "integer"
+    },
+    "total_nodes": {
+      "default": 0,
+      "title": "Total Nodes",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "graph_saved_path"
+  ],
+  "title": "ResourceGraph",
+  "type": "object"
+}

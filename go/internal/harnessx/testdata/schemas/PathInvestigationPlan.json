@@ -1,0 +1,45 @@
+{
+  "$defs": {
+    "ChildInvestigation": {
+      "properties": {
+        "child_prompt": {
+          "title": "Child Prompt",
+          "type": "string"
+        },
+        "findings_involved": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Findings Involved",
+          "type": "array"
+        },
+        "rationale": {
+          "default": "",
+          "title": "Rationale",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "child_prompt"
+      ],
+      "title": "ChildInvestigation",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "investigations": {
+      "items": {
+        "$ref": "#/$defs/ChildInvestigation"
+      },
+      "title": "Investigations",
+      "type": "array"
+    }
+  },
+  "title": "PathInvestigationPlan",
+  "type": "object"
+}
