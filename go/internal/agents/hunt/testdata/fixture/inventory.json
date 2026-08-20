@@ -1,0 +1,142 @@
+{
+  "resources": [
+    {
+      "id": "aws_iam_role.admin",
+      "type": "aws_iam_role",
+      "name": "admin",
+      "provider": "aws",
+      "file_path": "iam.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_iam_policy.broad",
+      "type": "aws_iam_policy",
+      "name": "broad",
+      "provider": "aws",
+      "file_path": "iam.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_s3_bucket.data",
+      "type": "aws_s3_bucket",
+      "name": "data",
+      "provider": "aws",
+      "file_path": "storage.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_vpc.main",
+      "type": "aws_vpc",
+      "name": "main",
+      "provider": "aws",
+      "file_path": "network.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_subnet.private",
+      "type": "aws_subnet",
+      "name": "private",
+      "provider": "aws",
+      "file_path": "network.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_instance.web",
+      "type": "aws_instance",
+      "name": "web",
+      "provider": "aws",
+      "file_path": "compute.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_kms_key.master",
+      "type": "aws_kms_key",
+      "name": "master",
+      "provider": "aws",
+      "file_path": "security.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_cloudtrail.audit",
+      "type": "aws_cloudtrail",
+      "name": "audit",
+      "provider": "aws",
+      "file_path": "logging.tf",
+      "line_number": 0
+    },
+    {
+      "id": "aws_secretsmanager_secret.db",
+      "type": "aws_secretsmanager_secret",
+      "name": "db",
+      "provider": "aws",
+      "file_path": "secrets.tf",
+      "line_number": 0
+    },
+    {
+      "id": "google_storage_bucket.exports",
+      "type": "google_storage_bucket",
+      "name": "exports",
+      "provider": "google",
+      "file_path": "gcp.tf",
+      "line_number": 0
+    },
+    {
+      "id": "local_file.notes",
+      "type": "local_file",
+      "name": "notes",
+      "provider": "",
+      "file_path": "misc.tf",
+      "line_number": 0
+    },
+    {
+      "id": "null_resource.bootstrap",
+      "type": "null_resource",
+      "name": "bootstrap",
+      "provider": null,
+      "file_path": "misc.tf",
+      "line_number": 0
+    }
+  ],
+  "variables": [
+    {
+      "name": "region",
+      "type": "string",
+      "default": "us-east-1"
+    },
+    {
+      "name": "environment",
+      "type": "string",
+      "default": "prod"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "bucket_arn",
+      "value": "aws_s3_bucket.data.arn"
+    }
+  ],
+  "providers": [
+    {
+      "name": "aws",
+      "region": "us-east-1",
+      "alias": null,
+      "version": null
+    },
+    {
+      "name": "google",
+      "region": "us-central1",
+      "alias": null,
+      "version": null
+    }
+  ],
+  "modules": [
+    {
+      "name": "vpc",
+      "source": "./modules/vpc"
+    },
+    {
+      "name": "logging",
+      "source": "./modules/logging"
+    }
+  ]
+}

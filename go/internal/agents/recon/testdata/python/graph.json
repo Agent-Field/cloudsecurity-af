@@ -1,0 +1,109 @@
+{
+  "nodes": [
+    {
+      "resource_id": "aws_instance.web_server",
+      "resource_type": "aws_instance",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {
+        "associate_public_ip_address": true
+      }
+    },
+    {
+      "resource_id": "aws_security_group.allow_all",
+      "resource_type": "aws_security_group",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {
+        "ingress": {
+          "from_port": 0,
+          "to_port": 0,
+          "protocol": "-1",
+          "cidr_blocks": [
+            "0.0.0.0/0"
+          ]
+        }
+      }
+    },
+    {
+      "resource_id": "aws_iam_role.web_role",
+      "resource_type": "aws_iam_role",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {
+        "assume_role_policy": "FunctionCall(span=SourceSpan(start=802, end=1017, source_id=SourceId(value=1)), ident=Identifier(span=SourceSpan(start=802, end=812, source_id=SourceId(value=1)), name='jsonencode'), args=[ObjectExpression(span=SourceSpan(start=813, end=1016, source_id=SourceId(value=1)), fields={Identifier(span=SourceSpan(start=819, end=826, source_id=SourceId(value=1)), name='Version'): Literal(span=SourceSpan(start=829, end=841, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=829, end=841, source_id=SourceId(value=1)), _raw='2012-10-17')), Identifier(span=SourceSpan(start=846, end=855, source_id=SourceId(value=1)), name='Statement'): ArrayExpression(span=SourceSpan(start=858, end=1012, source_id=SourceId(value=1)), values=[ObjectExpression(span=SourceSpan(start=866, end=1006, source_id=SourceId(value=1)), fields={Identifier(span=SourceSpan(start=876, end=882, source_id=SourceId(value=1)), name='Action'): Literal(span=SourceSpan(start=885, end=901, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=885, end=901, source_id=SourceId(value=1)), _raw='sts:AssumeRole')), Identifier(span=SourceSpan(start=910, end=916, source_id=SourceId(value=1)), name='Effect'): Literal(span=SourceSpan(start=919, end=926, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=919, end=926, source_id=SourceId(value=1)), _raw='Allow')), Identifier(span=SourceSpan(start=935, end=944, source_id=SourceId(value=1)), name='Principal'): ObjectExpression(span=SourceSpan(start=947, end=998, source_id=SourceId(value=1)), fields={Identifier(span=SourceSpan(start=959, end=966, source_id=SourceId(value=1)), name='Service'): Literal(span=SourceSpan(start=969, end=988, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=969, end=988, source_id=SourceId(value=1)), _raw='ec2.amazonaws.com'))})})])})], var_args=False)"
+      }
+    },
+    {
+      "resource_id": "aws_iam_instance_profile.web_profile",
+      "resource_type": "aws_iam_instance_profile",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {}
+    },
+    {
+      "resource_id": "aws_iam_role_policy.s3_full_access",
+      "resource_type": "aws_iam_role_policy",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {
+        "policy": "FunctionCall(span=SourceSpan(start=1271, end=1551, source_id=SourceId(value=1)), ident=Identifier(span=SourceSpan(start=1271, end=1281, source_id=SourceId(value=1)), name='jsonencode'), args=[ObjectExpression(span=SourceSpan(start=1282, end=1550, source_id=SourceId(value=1)), fields={Identifier(span=SourceSpan(start=1288, end=1295, source_id=SourceId(value=1)), name='Version'): Literal(span=SourceSpan(start=1298, end=1310, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=1298, end=1310, source_id=SourceId(value=1)), _raw='2012-10-17')), Identifier(span=SourceSpan(start=1315, end=1324, source_id=SourceId(value=1)), name='Statement'): ArrayExpression(span=SourceSpan(start=1327, end=1546, source_id=SourceId(value=1)), values=[ObjectExpression(span=SourceSpan(start=1335, end=1540, source_id=SourceId(value=1)), fields={Identifier(span=SourceSpan(start=1345, end=1351, source_id=SourceId(value=1)), name='Action'): ArrayExpression(span=SourceSpan(start=1354, end=1382, source_id=SourceId(value=1)), values=[Literal(span=SourceSpan(start=1366, end=1372, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=1366, end=1372, source_id=SourceId(value=1)), _raw='s3:*'))]), Identifier(span=SourceSpan(start=1391, end=1397, source_id=SourceId(value=1)), name='Effect'): Literal(span=SourceSpan(start=1402, end=1409, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=1402, end=1409, source_id=SourceId(value=1)), _raw='Allow')), Identifier(span=SourceSpan(start=1418, end=1426, source_id=SourceId(value=1)), name='Resource'): ArrayExpression(span=SourceSpan(start=1429, end=1532, source_id=SourceId(value=1)), values=[GetAttr(span=SourceSpan(start=1441, end=1472, source_id=SourceId(value=1)), on=GetAttr(span=SourceSpan(start=1441, end=1468, source_id=SourceId(value=1)), on=Identifier(span=SourceSpan(start=1441, end=1454, source_id=SourceId(value=1)), name='aws_s3_bucket'), key=GetAttrKey(span=SourceSpan(start=1454, end=1468, source_id=SourceId(value=1)), ident=Identifier(span=SourceSpan(start=1455, end=1468, source_id=SourceId(value=1)), name='customer_data'))), key=GetAttrKey(span=SourceSpan(start=1468, end=1472, source_id=SourceId(value=1)), ident=Identifier(span=SourceSpan(start=1469, end=1472, source_id=SourceId(value=1)), name='arn'))), Literal(span=SourceSpan(start=1484, end=1522, source_id=SourceId(value=1)), value=String(span=SourceSpan(start=1484, end=1522, source_id=SourceId(value=1)), _raw='${aws_s3_bucket.customer_data.arn}/*'))])})])})], var_args=False)"
+      }
+    },
+    {
+      "resource_id": "aws_s3_bucket.customer_data",
+      "resource_type": "aws_s3_bucket",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {}
+    },
+    {
+      "resource_id": "aws_s3_bucket_public_access_block.customer_data_block",
+      "resource_type": "aws_s3_bucket_public_access_block",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "config_summary": {
+        "block_public_acls": false,
+        "block_public_policy": false,
+        "ignore_public_acls": false,
+        "restrict_public_buckets": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "aws_iam_role_policy.s3_full_access",
+      "target": "aws_s3_bucket.customer_data",
+      "type": "trust"
+    }
+  ],
+  "clusters": [
+    {
+      "name": "compute/root",
+      "members": [
+        "aws_instance.web_server"
+      ]
+    },
+    {
+      "name": "data/root",
+      "members": [
+        "aws_s3_bucket.customer_data",
+        "aws_s3_bucket_public_access_block.customer_data_block"
+      ]
+    },
+    {
+      "name": "identity/root",
+      "members": [
+        "aws_iam_role.web_role",
+        "aws_iam_instance_profile.web_profile",
+        "aws_iam_role_policy.s3_full_access"
+      ]
+    },
+    {
+      "name": "network/root",
+      "members": [
+        "aws_security_group.allow_all"
+      ]
+    }
+  ]
+}

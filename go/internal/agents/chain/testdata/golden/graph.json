@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "resource_id": "aws_iam_role.admin",
+      "resource_type": "aws_iam_role",
+      "file_path": "main.tf",
+      "config_summary": {
+        "assume_role_policy": "*",
+        "name": "admin"
+      }
+    },
+    {
+      "resource_id": "aws_s3_bucket.data",
+      "resource_type": "aws_s3_bucket",
+      "file_path": "data.tf",
+      "config_summary": {}
+    },
+    {
+      "resource_id": "aws_kms_key.unrelated",
+      "resource_type": "aws_kms_key",
+      "file_path": "kms.tf",
+      "config_summary": {
+        "enable_key_rotation": false
+      }
+    },
+    "not-a-dict-node",
+    {
+      "resource_type": "aws_vpc.no_id"
+    }
+  ],
+  "edges": [
+    {
+      "source": "aws_iam_role.admin",
+      "target": "aws_s3_bucket.data",
+      "type": "data_access",
+      "description": "role can read the bucket"
+    },
+    {
+      "source": "aws_s3_bucket.data",
+      "target": "aws_kms_key.unrelated",
+      "type": "encryption"
+    },
+    {
+      "source": "unrelated.a",
+      "target": "unrelated.b",
+      "type": "references"
+    },
+    "not-a-dict-edge",
+    {
+      "target": "aws_s3_bucket.data"
+    }
+  ],
+  "clusters": [
+    {
+      "name": "prod",
+      "members": [
+        "aws_iam_role.admin"
+      ]
+    }
+  ],
+  "generated_by": "gen_golden.py"
+}

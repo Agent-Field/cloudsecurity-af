@@ -1,0 +1,9 @@
+RELEVANT RESOURCES:
+  - aws_s3_bucket.data (aws_s3_bucket) @ storage.tf
+    Config: {'acl': 'public-read', 'versioning': False, 'tags': {'owner': 'data-team', 'env': 'prod'}}
+  - aws_kms_key.master (aws_kms_key) @ security.tf
+    Config: {'enable_key_rotation': False, 'deletion_window_in_days': 7, 'rotation_period_days': 90.0, 'description': 'clé principale'}
+
+CONNECTED RESOURCES (1-hop neighbors):
+  - aws_instance.web (aws_instance) @ compute.tf
+    Config: {'instance_type': 't3.micro', 'associate_public_ip_address': True, 'metadata_options': {'http_tokens': 'optional'}}

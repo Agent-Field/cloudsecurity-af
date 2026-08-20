@@ -1,0 +1,9 @@
+Total resources: 12
+Providers: aws, google
+Modules: 2
+Variables: 2
+Outputs: 1
+Graph nodes: 9
+Graph edges: 4
+Filtered nodes: 2
+Filtered edges: 1

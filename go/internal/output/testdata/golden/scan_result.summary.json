@@ -1,0 +1,114 @@
+{
+  "repository": "https://github.com/Agent-Field/vulnerable-infra",
+  "commit_sha": "0f1e2d3c4b5a69788796a5b4c3d2e1f000112233",
+  "timestamp": "2026-05-06T07:08:09.123456+00:00",
+  "depth_profile": "standard",
+  "tier": 2,
+  "providers_detected": [
+    "aws",
+    "gcp"
+  ],
+  "summary": {
+    "total_resources_scanned": 137,
+    "total_findings": 4,
+    "confirmed": 1,
+    "likely": 1,
+    "inconclusive": 1,
+    "not_exploitable": 1,
+    "noise_reduction_pct": 78.94736842105263,
+    "by_severity": {
+      "critical": 1,
+      "high": 1,
+      "medium": 1,
+      "low": 1,
+      "info": 0
+    }
+  },
+  "findings": [
+    {
+      "id": "finding-iam-1",
+      "title": "Wildcard IAM policy on the task role",
+      "severity": "critical",
+      "verdict": "confirmed",
+      "risk_score": 9.5,
+      "category": "overprivilege",
+      "iac_file": "iam.tf",
+      "iac_line": 41,
+      "hunter_strategy": "iam",
+      "has_attack_path": true,
+      "has_drift": false
+    },
+    {
+      "id": "finding-net-1",
+      "title": "Security group open to the internet",
+      "severity": "high",
+      "verdict": "likely",
+      "risk_score": 7.25,
+      "category": "public_exposure",
+      "iac_file": "network.tf",
+      "iac_line": 12,
+      "hunter_strategy": "network",
+      "has_attack_path": true,
+      "has_drift": true
+    },
+    {
+      "id": "finding-net-2",
+      "title": "Load balancer logs disabled",
+      "severity": "low",
+      "verdict": "inconclusive",
+      "risk_score": 2.0,
+      "category": "public_exposure",
+      "iac_file": "network.tf",
+      "iac_line": 88,
+      "hunter_strategy": "network",
+      "has_attack_path": false,
+      "has_drift": false
+    },
+    {
+      "id": "finding-dropped",
+      "title": "Unused KMS key",
+      "severity": "medium",
+      "verdict": "not_exploitable",
+      "risk_score": 0.0,
+      "category": "encryption",
+      "iac_file": "kms.tf",
+      "iac_line": 3,
+      "hunter_strategy": "data",
+      "has_attack_path": false,
+      "has_drift": false
+    }
+  ],
+  "attack_paths": [
+    {
+      "id": "path-1",
+      "title": "Public ALB to customer PII bucket",
+      "entry_point": "aws_lb.public",
+      "target": "aws_s3_bucket.pii",
+      "combined_severity": "critical",
+      "steps_count": 3,
+      "findings_involved": [
+        "finding-net-1",
+        "finding-iam-1"
+      ]
+    }
+  ],
+  "drift": {
+    "drifted_resources": 3,
+    "shadow_it_resources": 1
+  },
+  "compliance_frameworks_checked": [
+    "CIS-AWS",
+    "SOC2"
+  ],
+  "performance": {
+    "duration_seconds": 412.6499999999999,
+    "cost_usd": 1.23456789,
+    "cost_breakdown": {
+      "recon": 0.13456789,
+      "hunt": 0.5,
+      "chain": 0.2,
+      "prove": 0.4
+    },
+    "agent_invocations": 23
+  }
+}

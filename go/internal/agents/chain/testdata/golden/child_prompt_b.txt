@@ -1,0 +1,8 @@
+Check whether the missing CloudTrail hides the pivot.
+
+OUTPUT REQUIREMENTS:
+- Return a single JSON object matching AttackPath.
+- Only include a path if there is a coherent attacker progression across resources.
+- Use findings_involved IDs tied to the path steps.
+- Keep steps in strict step_number order starting at 1.
+- The parent will keep at most 1 final attack paths.

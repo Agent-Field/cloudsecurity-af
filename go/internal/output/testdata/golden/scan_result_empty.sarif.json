@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CloudSecurity AF",
+          "semanticVersion": "0.1.0",
+          "informationUri": "https://github.com/Agent-Field/cloudsecurity-af",
+          "rules": []
+        }
+      },
+      "results": [],
+      "automationDetails": {
+        "id": "cloudsecurity-af/scan//2026-05-06T07:08:09+00:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+RELEVANT RELATIONSHIPS:
+  - aws_iam_role.admin --[policy_attachment]--> aws_iam_policy.broad
+    Admin role has the broad policy attached
+  - aws_vpc.main --[contains]--> aws_subnet.private
+  - aws_s3_bucket.data --[encrypted_by]--> aws_kms_key.master
+  - aws_instance.web --[references]--> aws_kms_key.master

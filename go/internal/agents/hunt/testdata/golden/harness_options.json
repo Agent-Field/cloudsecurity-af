@@ -1,0 +1,37 @@
+{
+  "iam_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "network_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "data_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "secrets_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "compute_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "logging_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  },
+  "compliance_hunter": {
+    "schema": "HuntResult",
+    "cwd": "/fixture/repo",
+    "project_dir": "/fixture/repo"
+  }
+}
