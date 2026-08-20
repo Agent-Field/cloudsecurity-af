@@ -1,0 +1,5 @@
+bin/
+go.work
+go.work.sum
+coverage.out
+*.test

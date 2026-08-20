@@ -1,0 +1,39 @@
+{
+  "id": "vf-1",
+  "title": "Bucket \u00e9xposed \u2014 \ud83d\ude80",
+  "verdict": "likely",
+  "severity": "high",
+  "category": "public_exposure",
+  "resources": [
+    {
+      "resource_id": "aws_s3_bucket.b",
+      "resource_type": "aws_s3_bucket",
+      "attribute": "acl",
+      "current_value": "public-read",
+      "recommended_value": "private"
+    }
+  ],
+  "attack_path": null,
+  "drift": null,
+  "proof": {
+    "method": "iam_simulation",
+    "evidence": [
+      "<policy> & \"quote\"",
+      "line\twith tab"
+    ],
+    "scripts_executed": [],
+    "verification_tier": "live"
+  },
+  "compliance_mappings": [],
+  "risk_score": 7.25,
+  "remediation": null,
+  "sarif_rule_id": "cloudsecurity/data/public_exposure",
+  "sarif_security_severity": 10.0,
+  "iac_file": "s3.tf",
+  "iac_line": 12,
+  "config_snippet": "",
+  "description": "",
+  "fingerprint": "fp-1",
+  "hunter_strategy": "data",
+  "drop_reason": null
+}

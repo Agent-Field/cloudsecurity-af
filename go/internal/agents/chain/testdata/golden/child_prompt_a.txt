@@ -1,0 +1,9 @@
+Verify whether an anonymous attacker can assume aws_iam_role.admin
+  and then read aws_s3_bucket.data. Evidence required per hop.
+
+OUTPUT REQUIREMENTS:
+- Return a single JSON object matching AttackPath.
+- Only include a path if there is a coherent attacker progression across resources.
+- Use findings_involved IDs tied to the path steps.
+- Keep steps in strict step_number order starting at 1.
+- The parent will keep at most 5 final attack paths.

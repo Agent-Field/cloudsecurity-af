@@ -1,0 +1,5 @@
+RELEVANT RESOURCES:
+  - aws_iam_role.admin (aws_iam_role) @ iam.tf
+    Config: {'name': 'admin', 'assume_role_policy': {'Version': '2012-10-17', 'Statement': [{'Effect': 'Allow', 'Principal': {'AWS': '*'}}]}, 'managed_policy_arns': ['arn:aws:iam::aws:policy/AdministratorAccess']}
+  - aws_iam_policy.broad (aws_iam_policy) @ iam.tf
+    Config: {'policy': '{"Statement":[{"Action":"*","Resource":"*"}]}', 'description': None}

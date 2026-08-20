@@ -1,0 +1,13 @@
+{
+  "duration_seconds": 1000000000000000.0,
+  "agent_invocations": 41,
+  "cost_usd": 1e+16,
+  "cost_breakdown": {
+    "a": 1.0,
+    "b": 0.5,
+    "c": -0.0,
+    "z": 1e-05
+  },
+  "budget_exhausted": true,
+  "findings_not_verified": 0
+}

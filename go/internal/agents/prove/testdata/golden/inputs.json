@@ -1,0 +1,82 @@
+{
+  "finding_full": {
+    "id": "finding-1",
+    "hunter_strategy": "iam",
+    "title": "Role trusts * <everyone> & assumes admin",
+    "description": "aws_iam_role.admin has a wildcard trust policy.",
+    "category": "overprivilege",
+    "resources": [
+      {
+        "resource_id": "aws_iam_role.admin",
+        "resource_type": "aws_iam_role",
+        "attribute": "assume_role_policy",
+        "current_value": "{\"Principal\": \"*\"}",
+        "recommended_value": "scoped principal"
+      }
+    ],
+    "estimated_severity": "critical",
+    "confidence": "high",
+    "iac_file": "main.tf",
+    "iac_line": 12,
+    "config_snippet": "resource \"aws_iam_role\" \"admin\" {\n  assume_role_policy = \"*\"\n}",
+    "benchmark_id": "CIS-1.16",
+    "fingerprint": "fp-iam-1"
+  },
+  "finding_bare": {
+    "id": "finding-2",
+    "hunter_strategy": "network",
+    "title": "Security group open to 0.0.0.0/0 \u2014 p\u00f6rt\u00e9 22",
+    "description": "Ingress from anywhere.",
+    "category": "public_exposure",
+    "resources": [],
+    "estimated_severity": "high",
+    "confidence": "medium",
+    "iac_file": "network.tf",
+    "iac_line": 0,
+    "config_snippet": "",
+    "benchmark_id": null,
+    "fingerprint": "fp-net-2"
+  },
+  "attack_path": {
+    "id": "path-1",
+    "title": "Wildcard role -> public bucket",
+    "description": "An anonymous principal assumes the admin role and reads the data lake.",
+    "steps": [
+      {
+        "step_number": 1,
+        "resource_id": "aws_iam_role.admin",
+        "resource_type": "aws_iam_role",
+        "action": "sts:AssumeRole as any principal",
+        "permission_used": "assume_role_policy: *",
+        "description": ""
+      },
+      {
+        "step_number": 2,
+        "resource_id": "aws_s3_bucket.data",
+        "resource_type": "aws_s3_bucket",
+        "action": "s3:GetObject",
+        "permission_used": "role policy allows s3:*",
+        "description": "Exfiltrate the data lake."
+      }
+    ],
+    "entry_point": "aws_iam_role.admin",
+    "target": "aws_s3_bucket.data",
+    "findings_involved": [
+      "finding-1",
+      "finding-2"
+    ],
+    "combined_severity": "critical",
+    "blast_radius": {
+      "data_stores_reachable": [
+        "aws_s3_bucket.data"
+      ],
+      "compute_reachable": [],
+      "estimated_data_volume": "~2 TB",
+      "services_affected": [
+        "s3",
+        "iam"
+      ]
+    }
+  },
+  "repo_path": "/fixture/repo"
+}

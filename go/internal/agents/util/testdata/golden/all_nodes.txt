@@ -1,0 +1,19 @@
+RELEVANT RESOURCES:
+  - aws_iam_role.admin (aws_iam_role) @ iam.tf
+    Config: {'name': 'admin', 'assume_role_policy': {'Version': '2012-10-17', 'Statement': [{'Effect': 'Allow', 'Principal': {'AWS': '*'}}]}, 'managed_policy_arns': ['arn:aws:iam::aws:policy/AdministratorAccess']}
+  - aws_iam_policy.broad (aws_iam_policy) @ iam.tf
+    Config: {'policy': '{"Statement":[{"Action":"*","Resource":"*"}]}', 'description': None}
+  - aws_s3_bucket.data (aws_s3_bucket) @ storage.tf
+    Config: {'acl': 'public-read', 'versioning': False, 'tags': {'owner': 'data-team', 'env': 'prod'}}
+  - aws_vpc.main (aws_vpc) @ network.tf
+    Config: {'cidr_block': '10.0.0.0/16', 'enable_dns_hostnames': True}
+  - aws_subnet.private (aws_subnet) @ network.tf
+    Config: {'cidr_block': '10.0.1.0/24', 'map_public_ip_on_launch': False}
+  - aws_instance.web (aws_instance) @ compute.tf
+    Config: {'instance_type': 't3.micro', 'associate_public_ip_address': True, 'metadata_options': {'http_tokens': 'optional'}}
+  - aws_kms_key.master (aws_kms_key) @ security.tf
+    Config: {'enable_key_rotation': False, 'deletion_window_in_days': 7, 'rotation_period_days': 90.0, 'description': 'clé principale'}
+  - aws_cloudtrail.audit (aws_cloudtrail) @ logging.tf
+    Config: {'is_multi_region_trail': False, 'enable_log_file_validation': False}
+  - aws_secretsmanager_secret.db (aws_secretsmanager_secret) @ secrets.tf
+    Config: {'recovery_window_in_days': 0, 'rotation_rules': None}

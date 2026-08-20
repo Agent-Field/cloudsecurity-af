@@ -1,0 +1,125 @@
+{
+  "AttackPath": {
+    "blast_radius": {
+      "compute_reachable": [
+        "c1"
+      ],
+      "data_stores_reachable": [],
+      "estimated_data_volume": null,
+      "services_affected": []
+    },
+    "combined_severity": "critical",
+    "description": "",
+    "entry_point": "a",
+    "findings_involved": [
+      "f1",
+      "f2"
+    ],
+    "id": "ap-1",
+    "steps": [
+      {
+        "action": "act",
+        "description": "",
+        "permission_used": "perm",
+        "resource_id": "a",
+        "resource_type": "t",
+        "step_number": 1
+      },
+      {
+        "action": "act2",
+        "description": "d",
+        "permission_used": "perm2",
+        "resource_id": "b",
+        "resource_type": "t",
+        "step_number": 2
+      }
+    ],
+    "target": "b",
+    "title": "Path"
+  },
+  "ChainResult": {
+    "attack_paths": [],
+    "chain_duration_seconds": 1e-05,
+    "total_paths_evaluated": 12,
+    "viable_paths": 0
+  },
+  "ScanMetrics": {
+    "agent_invocations": 41,
+    "budget_exhausted": true,
+    "cost_breakdown": {
+      "a": 1.0,
+      "b": 0.5,
+      "c": -0.0,
+      "z": 1e-05
+    },
+    "cost_usd": 1e+16,
+    "duration_seconds": 1000000000000000.0,
+    "findings_not_verified": 0
+  },
+  "VerifiedFinding": {
+    "attack_path": null,
+    "category": "public_exposure",
+    "compliance_mappings": [],
+    "config_snippet": "",
+    "description": "",
+    "drift": null,
+    "drop_reason": null,
+    "fingerprint": "fp-1",
+    "hunter_strategy": "data",
+    "iac_file": "s3.tf",
+    "iac_line": 12,
+    "id": "vf-1",
+    "proof": {
+      "evidence": [
+        "<policy> & \"quote\"",
+        "line\twith tab"
+      ],
+      "method": "iam_simulation",
+      "scripts_executed": [],
+      "verification_tier": "live"
+    },
+    "remediation": null,
+    "resources": [
+      {
+        "attribute": "acl",
+        "current_value": "public-read",
+        "recommended_value": "private",
+        "resource_id": "aws_s3_bucket.b",
+        "resource_type": "aws_s3_bucket"
+      }
+    ],
+    "risk_score": 7.25,
+    "sarif_rule_id": "cloudsecurity/data/public_exposure",
+    "sarif_security_severity": 10.0,
+    "severity": "high",
+    "title": "Bucket \u00e9xposed \u2014 \ud83d\ude80",
+    "verdict": "likely"
+  },
+  "edge_cases": {
+    "big_int": 1234567890123456789,
+    "control": "a\tb\nc\u0000d\u007f",
+    "empty_list": [],
+    "empty_obj": {},
+    "false": false,
+    "float_huge": 1e+16,
+    "float_integral": 1.0,
+    "float_neg_zero": -0.0,
+    "float_pi": 3.141592653589793,
+    "float_tiny": 1e-05,
+    "html": "<a> & </a> /",
+    "int": 7,
+    "nested": {
+      "list_of_obj": [
+        {
+          "k": 1
+        },
+        {
+          "k": 2
+        }
+      ]
+    },
+    "null": null,
+    "true": true,
+    "unicode": "h\u00e9llo \u2014 \u4e16\u754c \ud83d\ude80"
+  }
+}

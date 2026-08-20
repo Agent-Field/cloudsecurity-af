@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CloudSecurity AF",
+          "semanticVersion": "0.1.0",
+          "informationUri": "https://github.com/Agent-Field/cloudsecurity-af",
+          "rules": [
+            {
+              "id": "cloudsecurity//",
+              "name": "CloudSecurityRule",
+              "shortDescription": {
+                "text": "Unnamed rule"
+              },
+              "fullDescription": {
+                "text": "Unnamed rule"
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0",
+                "tags": [
+                  "",
+                  "infrastructure",
+                  "security"
+                ]
+              }
+            },
+            {
+              "id": "cloudsecurity/data/PUBLIC-exposure_v2",
+              "name": "PublicExposureV2",
+              "shortDescription": {
+                "text": "S3 bucket \"public\" \u2014 \u4e16\u754c \ud83d\ude80"
+              },
+              "fullDescription": {
+                "text": "Bucket ACL is public-read.\tSee <docs>."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "precision": "high",
+                "security-severity": "10.0",
+                "tags": [
+                  "compliance:CIS-AWS-2.1.1",
+                  "compliance:\u00a75.2",
+                  "data",
+                  "infrastructure",
+                  "public_exposure",
+                  "security"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "cloudsecurity//",
+          "level": "note",
+          "message": {
+            "text": "[CONFIRMED] Unnamed rule: Unnamed rule"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "unknown",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "fp-fallback"
+          },
+          "properties": {
+            "security-severity": "0.0",
+            "cloudsecurity/verdict": "confirmed",
+            "cloudsecurity/risk_score": 1e-05,
+            "cloudsecurity/hunter_strategy": "",
+            "cloudsecurity/category": "",
+            "cloudsecurity/compliance": [],
+            "tags": [
+              "",
+              "infrastructure",
+              "security"
+            ]
+          }
+        },
+        {
+          "ruleId": "cloudsecurity/data/PUBLIC-exposure_v2",
+          "level": "warning",
+          "message": {
+            "text": "[LIKELY] S3 bucket \"public\" \u2014 \u4e16\u754c \ud83d\ude80: Bucket ACL is public-read.\tSee <docs>."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "s3\\buckets.tf",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 7,
+                  "snippet": {
+                    "text": "resource \"aws_s3_bucket\" \"b\" {\n\tacl = \"public-read\"\n}"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "fp-\u00e9scaped"
+          },
+          "properties": {
+            "security-severity": "10.0",
+            "cloudsecurity/verdict": "likely",
+            "cloudsecurity/risk_score": 2.675,
+            "cloudsecurity/hunter_strategy": "data",
+            "cloudsecurity/category": "public_exposure",
+            "cloudsecurity/compliance": [
+              "CIS-AWS-2.1.1",
+              "\u00a75.2"
+            ],
+            "tags": [
+              "compliance:CIS-AWS-2.1.1",
+              "compliance:\u00a75.2",
+              "data",
+              "infrastructure",
+              "public_exposure",
+              "security"
+            ]
+          }
+        }
+      ],
+      "automationDetails": {
+        "id": "cloudsecurity-af/scan/repo/with spaces & <brackets>/2026-05-06T07:08:09.500000+05:30"
+      }
+    }
+  ]
+}

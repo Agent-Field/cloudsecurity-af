@@ -1,0 +1,764 @@
+{
+  "AffectedResource": {
+    "dump": {
+      "attribute": "",
+      "current_value": "",
+      "recommended_value": "",
+      "resource_id": "",
+      "resource_type": ""
+    },
+    "keys": [
+      "resource_id",
+      "resource_type",
+      "attribute",
+      "current_value",
+      "recommended_value"
+    ],
+    "module": "cloudsecurity_af.schemas.hunt",
+    "nondeterministic": []
+  },
+  "AttackPath": {
+    "dump": {
+      "blast_radius": {
+        "compute_reachable": [],
+        "data_stores_reachable": [],
+        "estimated_data_volume": null,
+        "services_affected": []
+      },
+      "combined_severity": "high",
+      "description": "",
+      "entry_point": "",
+      "findings_involved": [],
+      "id": "<uuid4>",
+      "steps": [],
+      "target": "",
+      "title": ""
+    },
+    "keys": [
+      "id",
+      "title",
+      "description",
+      "steps",
+      "entry_point",
+      "target",
+      "findings_involved",
+      "combined_severity",
+      "blast_radius"
+    ],
+    "module": "cloudsecurity_af.schemas.chain",
+    "nondeterministic": [
+      "id"
+    ]
+  },
+  "AttackStep": {
+    "dump": {
+      "action": "",
+      "description": "",
+      "permission_used": "",
+      "resource_id": "",
+      "resource_type": "",
+      "step_number": 0
+    },
+    "keys": [
+      "step_number",
+      "resource_id",
+      "resource_type",
+      "action",
+      "permission_used",
+      "description"
+    ],
+    "module": "cloudsecurity_af.schemas.chain",
+    "nondeterministic": []
+  },
+  "BlastRadius": {
+    "dump": {
+      "compute_reachable": [],
+      "data_stores_reachable": [],
+      "estimated_data_volume": null,
+      "services_affected": []
+    },
+    "keys": [
+      "data_stores_reachable",
+      "compute_reachable",
+      "estimated_data_volume",
+      "services_affected"
+    ],
+    "module": "cloudsecurity_af.schemas.chain",
+    "nondeterministic": []
+  },
+  "ChainResult": {
+    "dump": {
+      "attack_paths": [],
+      "chain_duration_seconds": 0.0,
+      "total_paths_evaluated": 0,
+      "viable_paths": 0
+    },
+    "keys": [
+      "attack_paths",
+      "total_paths_evaluated",
+      "viable_paths",
+      "chain_duration_seconds"
+    ],
+    "module": "cloudsecurity_af.schemas.chain",
+    "nondeterministic": []
+  },
+  "ChildInvestigation": {
+    "dump": {
+      "child_prompt": "",
+      "findings_involved": [],
+      "rationale": "",
+      "title": ""
+    },
+    "keys": [
+      "title",
+      "rationale",
+      "findings_involved",
+      "child_prompt"
+    ],
+    "module": "cloudsecurity_af.agents.chain.path_constructor",
+    "nondeterministic": []
+  },
+  "CloudConfig": {
+    "dump": {
+      "account_id": null,
+      "assume_role_arn": null,
+      "provider": "aws",
+      "regions": [
+        "us-east-1"
+      ]
+    },
+    "keys": [
+      "provider",
+      "regions",
+      "account_id",
+      "assume_role_arn"
+    ],
+    "module": "cloudsecurity_af.schemas.input",
+    "nondeterministic": []
+  },
+  "CloudSecurityInput": {
+    "dump": {
+      "base_commit_sha": null,
+      "branch": "main",
+      "cloud": null,
+      "commit_sha": null,
+      "compliance_frameworks": [],
+      "depth": "standard",
+      "exclude_paths": [
+        "tests/",
+        ".git/",
+        "examples/",
+        ".terraform/"
+      ],
+      "fail_on_findings": false,
+      "include_paths": null,
+      "is_pr": false,
+      "max_concurrent_hunters": null,
+      "max_concurrent_provers": null,
+      "max_cost_usd": null,
+      "max_duration_seconds": null,
+      "output_formats": [
+        "json"
+      ],
+      "pr_id": null,
+      "repo_url": "",
+      "severity_threshold": "low"
+    },
+    "keys": [
+      "repo_url",
+      "branch",
+      "commit_sha",
+      "base_commit_sha",
+      "depth",
+      "severity_threshold",
+      "output_formats",
+      "compliance_frameworks",
+      "cloud",
+      "max_cost_usd",
+      "max_duration_seconds",
+      "max_concurrent_hunters",
+      "max_concurrent_provers",
+      "include_paths",
+      "exclude_paths",
+      "is_pr",
+      "pr_id",
+      "fail_on_findings"
+    ],
+    "module": "cloudsecurity_af.schemas.input",
+    "nondeterministic": []
+  },
+  "CloudSecurityScanResult": {
+    "dump": {
+      "agent_invocations": 0,
+      "attack_paths": [],
+      "branch": null,
+      "by_severity": {},
+      "commit_sha": "",
+      "compliance_frameworks_checked": [],
+      "compliance_gaps": [],
+      "confirmed": 0,
+      "cost_breakdown": {},
+      "cost_usd": 0.0,
+      "depth_profile": "",
+      "drift_resources": 0,
+      "duration_seconds": 0.0,
+      "findings": [],
+      "inconclusive": 0,
+      "likely": 0,
+      "metadata": {},
+      "noise_reduction_pct": 0.0,
+      "not_exploitable": 0,
+      "providers_detected": [],
+      "repository": "",
+      "sarif": "",
+      "shadow_it_resources": 0,
+      "strategies_used": [],
+      "tier": 0,
+      "timestamp": "2026-01-02T03:04:05.123456+00:00",
+      "total_raw_findings": 0,
+      "total_resources_scanned": 0
+    },
+    "keys": [
+      "repository",
+      "commit_sha",
+      "branch",
+      "timestamp",
+      "depth_profile",
+      "tier",
+      "providers_detected",
+      "findings",
+      "attack_paths",
+      "total_resources_scanned",
+      "total_raw_findings",
+      "confirmed",
+      "likely",
+      "inconclusive",
+      "not_exploitable",
+      "noise_reduction_pct",
+      "by_severity",
+      "drift_resources",
+      "shadow_it_resources",
+      "compliance_frameworks_checked",
+      "compliance_gaps",
+      "strategies_used",
+      "duration_seconds",
+      "agent_invocations",
+      "cost_usd",
+      "cost_breakdown",
+      "metadata",
+      "sarif"
+    ],
+    "module": "cloudsecurity_af.schemas.output",
+    "nondeterministic": []
+  },
+  "ConfigDiff": {
+    "dump": {
+      "attribute": "",
+      "iac_value": null,
+      "live_value": null,
+      "security_impact": null
+    },
+    "keys": [
+      "attribute",
+      "iac_value",
+      "live_value",
+      "security_impact"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "DriftReport": {
+    "dump": {
+      "cloud_only_resources": [],
+      "drifted_resources": [],
+      "iac_only_resources": []
+    },
+    "keys": [
+      "drifted_resources",
+      "iac_only_resources",
+      "cloud_only_resources"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "DriftedResource": {
+    "dump": {
+      "diffs": [],
+      "iac_config": {},
+      "live_config": {},
+      "resource_id": "",
+      "resource_type": "",
+      "security_relevant": false,
+      "significance": "medium"
+    },
+    "keys": [
+      "resource_id",
+      "resource_type",
+      "iac_config",
+      "live_config",
+      "diffs",
+      "security_relevant",
+      "significance"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "FindingForChain": {
+    "dump": {
+      "category": "",
+      "confidence": "",
+      "description": "",
+      "estimated_severity": "",
+      "id": "",
+      "resources": [],
+      "title": ""
+    },
+    "keys": [
+      "id",
+      "title",
+      "description",
+      "category",
+      "resources",
+      "estimated_severity",
+      "confidence"
+    ],
+    "module": "cloudsecurity_af.schemas.views",
+    "nondeterministic": []
+  },
+  "FindingForDedup": {
+    "dump": {
+      "category": "",
+      "estimated_severity": "",
+      "fingerprint": "",
+      "hunter_strategy": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "id": "",
+      "title": ""
+    },
+    "keys": [
+      "id",
+      "fingerprint",
+      "title",
+      "iac_file",
+      "iac_line",
+      "category",
+      "hunter_strategy",
+      "estimated_severity"
+    ],
+    "module": "cloudsecurity_af.schemas.views",
+    "nondeterministic": []
+  },
+  "FindingForProver": {
+    "dump": {
+      "attack_path_summary": "",
+      "benchmark_id": null,
+      "category": "",
+      "config_snippet": "",
+      "description": "",
+      "hunter_strategy": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "id": "",
+      "resources_summary": "",
+      "title": ""
+    },
+    "keys": [
+      "id",
+      "title",
+      "description",
+      "category",
+      "hunter_strategy",
+      "iac_file",
+      "iac_line",
+      "config_snippet",
+      "resources_summary",
+      "attack_path_summary",
+      "benchmark_id"
+    ],
+    "module": "cloudsecurity_af.schemas.views",
+    "nondeterministic": []
+  },
+  "HuntResult": {
+    "dump": {
+      "deduplicated_count": 0,
+      "findings": [],
+      "hunt_duration_seconds": 0.0,
+      "strategies_run": [],
+      "total_raw": 0
+    },
+    "keys": [
+      "findings",
+      "total_raw",
+      "deduplicated_count",
+      "strategies_run",
+      "hunt_duration_seconds"
+    ],
+    "module": "cloudsecurity_af.schemas.hunt",
+    "nondeterministic": []
+  },
+  "IaCDiff": {
+    "dump": {
+      "end_line": 0,
+      "file_path": "",
+      "original_lines": "",
+      "patched_lines": "",
+      "start_line": 0
+    },
+    "keys": [
+      "file_path",
+      "original_lines",
+      "patched_lines",
+      "start_line",
+      "end_line"
+    ],
+    "module": "cloudsecurity_af.schemas.prove",
+    "nondeterministic": []
+  },
+  "Module": {
+    "dump": {
+      "file_path": null,
+      "name": "",
+      "source": "",
+      "version": null
+    },
+    "keys": [
+      "name",
+      "source",
+      "version",
+      "file_path"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "Output": {
+    "dump": {
+      "description": null,
+      "file_path": null,
+      "name": "",
+      "value": null
+    },
+    "keys": [
+      "name",
+      "value",
+      "description",
+      "file_path"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "PathInvestigationPlan": {
+    "dump": {
+      "investigations": []
+    },
+    "keys": [
+      "investigations"
+    ],
+    "module": "cloudsecurity_af.agents.chain.path_constructor",
+    "nondeterministic": []
+  },
+  "Proof": {
+    "dump": {
+      "evidence": [],
+      "method": "static_analysis",
+      "scripts_executed": [],
+      "verification_tier": "static"
+    },
+    "keys": [
+      "method",
+      "evidence",
+      "scripts_executed",
+      "verification_tier"
+    ],
+    "module": "cloudsecurity_af.schemas.prove",
+    "nondeterministic": []
+  },
+  "ProviderConfig": {
+    "dump": {
+      "alias": null,
+      "name": "",
+      "region": null,
+      "version": null
+    },
+    "keys": [
+      "name",
+      "region",
+      "alias",
+      "version"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "RawFinding": {
+    "dump": {
+      "benchmark_id": null,
+      "category": "",
+      "confidence": "medium",
+      "config_snippet": "",
+      "description": "",
+      "estimated_severity": "medium",
+      "fingerprint": "<uuid4>",
+      "hunter_strategy": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "id": "<uuid4>",
+      "resources": [],
+      "title": ""
+    },
+    "keys": [
+      "id",
+      "hunter_strategy",
+      "title",
+      "description",
+      "category",
+      "resources",
+      "estimated_severity",
+      "confidence",
+      "iac_file",
+      "iac_line",
+      "config_snippet",
+      "benchmark_id",
+      "fingerprint"
+    ],
+    "module": "cloudsecurity_af.schemas.hunt",
+    "nondeterministic": [
+      "id",
+      "fingerprint"
+    ]
+  },
+  "ReconResult": {
+    "dump": {
+      "drift_report": null,
+      "iac_type": "terraform",
+      "inventory": {
+        "iac_type": "terraform",
+        "iac_version": null,
+        "inventory_saved_path": "",
+        "total_resources": 0
+      },
+      "live_inventory": null,
+      "providers_detected": [],
+      "recon_duration_seconds": 0.0,
+      "resource_graph": {
+        "graph_saved_path": "",
+        "total_edges": 0,
+        "total_nodes": 0
+      },
+      "total_edges": 0,
+      "total_resources": 0
+    },
+    "keys": [
+      "inventory",
+      "resource_graph",
+      "drift_report",
+      "live_inventory",
+      "iac_type",
+      "providers_detected",
+      "total_resources",
+      "total_edges",
+      "recon_duration_seconds"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "RemediationSuggestion": {
+    "dump": {
+      "alternative_approaches": [],
+      "breaking_change": false,
+      "description": "",
+      "diffs": [],
+      "downtime_estimate": null,
+      "effort": "moderate",
+      "finding_id": ""
+    },
+    "keys": [
+      "finding_id",
+      "description",
+      "diffs",
+      "breaking_change",
+      "downtime_estimate",
+      "effort",
+      "alternative_approaches"
+    ],
+    "module": "cloudsecurity_af.schemas.prove",
+    "nondeterministic": []
+  },
+  "Resource": {
+    "dump": {
+      "config": {},
+      "file_path": "",
+      "id": "",
+      "line_number": 0,
+      "name": "",
+      "provider": "",
+      "referenced_by": [],
+      "references": [],
+      "type": ""
+    },
+    "keys": [
+      "id",
+      "type",
+      "name",
+      "provider",
+      "file_path",
+      "line_number",
+      "config",
+      "references",
+      "referenced_by"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "ResourceGraph": {
+    "dump": {
+      "graph_saved_path": "",
+      "total_edges": 0,
+      "total_nodes": 0
+    },
+    "keys": [
+      "graph_saved_path",
+      "total_nodes",
+      "total_edges"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "ResourceInventory": {
+    "dump": {
+      "iac_type": "terraform",
+      "iac_version": null,
+      "inventory_saved_path": "",
+      "total_resources": 0
+    },
+    "keys": [
+      "inventory_saved_path",
+      "total_resources",
+      "iac_type",
+      "iac_version"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "ScanMetrics": {
+    "dump": {
+      "agent_invocations": 0,
+      "budget_exhausted": false,
+      "cost_breakdown": {},
+      "cost_usd": 0.0,
+      "duration_seconds": 0.0,
+      "findings_not_verified": 0
+    },
+    "keys": [
+      "duration_seconds",
+      "agent_invocations",
+      "cost_usd",
+      "cost_breakdown",
+      "budget_exhausted",
+      "findings_not_verified"
+    ],
+    "module": "cloudsecurity_af.schemas.output",
+    "nondeterministic": []
+  },
+  "ScanProgress": {
+    "dump": {
+      "agents_completed": 0,
+      "agents_running": 0,
+      "agents_total": 0,
+      "cost_so_far_usd": 0.0,
+      "elapsed_seconds": 0.0,
+      "estimated_remaining_seconds": 0.0,
+      "findings_so_far": 0,
+      "phase": "",
+      "phase_progress": 0.0
+    },
+    "keys": [
+      "phase",
+      "phase_progress",
+      "agents_total",
+      "agents_completed",
+      "agents_running",
+      "findings_so_far",
+      "elapsed_seconds",
+      "estimated_remaining_seconds",
+      "cost_so_far_usd"
+    ],
+    "module": "cloudsecurity_af.schemas.output",
+    "nondeterministic": []
+  },
+  "Variable": {
+    "dump": {
+      "default": null,
+      "description": null,
+      "file_path": null,
+      "name": "",
+      "type": null
+    },
+    "keys": [
+      "name",
+      "type",
+      "default",
+      "description",
+      "file_path"
+    ],
+    "module": "cloudsecurity_af.schemas.recon",
+    "nondeterministic": []
+  },
+  "VerifiedFinding": {
+    "dump": {
+      "attack_path": null,
+      "category": "",
+      "compliance_mappings": [],
+      "config_snippet": "",
+      "description": "",
+      "drift": null,
+      "drop_reason": null,
+      "fingerprint": "<uuid4>",
+      "hunter_strategy": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "id": "<uuid4>",
+      "proof": {
+        "evidence": [],
+        "method": "static_analysis",
+        "scripts_executed": [],
+        "verification_tier": "static"
+      },
+      "remediation": null,
+      "resources": [],
+      "risk_score": 0.0,
+      "sarif_rule_id": "",
+      "sarif_security_severity": 0.0,
+      "severity": "medium",
+      "title": "",
+      "verdict": "confirmed"
+    },
+    "keys": [
+      "id",
+      "title",
+      "verdict",
+      "severity",
+      "category",
+      "resources",
+      "attack_path",
+      "drift",
+      "proof",
+      "compliance_mappings",
+      "risk_score",
+      "remediation",
+      "sarif_rule_id",
+      "sarif_security_severity",
+      "iac_file",
+      "iac_line",
+      "config_snippet",
+      "description",
+      "fingerprint",
+      "hunter_strategy",
+      "drop_reason"
+    ],
+    "module": "cloudsecurity_af.schemas.prove",
+    "nondeterministic": [
+      "id",
+      "fingerprint"
+    ]
+  }
+}

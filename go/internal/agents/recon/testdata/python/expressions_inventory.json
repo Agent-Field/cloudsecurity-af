@@ -1,0 +1,172 @@
+{
+  "resources": [
+    {
+      "id": "aws_s3_bucket.b",
+      "type": "aws_s3_bucket",
+      "name": "b",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "line_number": 0,
+      "config": {
+        "bucket": "x",
+        "force_destroy": true,
+        "count": 2,
+        "price": 1.5,
+        "neg": "UnaryExpression(span=SourceSpan(start=634, end=636, source_id=SourceId(value=2)), op=UnaryOperator(span=SourceSpan(start=634, end=635, source_id=SourceId(value=2)), type='-'), expr=Literal(span=SourceSpan(start=635, end=636, source_id=SourceId(value=2)), value=Integer(span=SourceSpan(start=635, end=636, source_id=SourceId(value=2)), _raw=1)))",
+        "interp": "${var.env}-suffix",
+        "cond": "Conditional(span=SourceSpan(start=693, end=721, source_id=SourceId(value=2)), cond=BinaryExpression(span=SourceSpan(start=693, end=709, source_id=SourceId(value=2)), op=BinaryOperator(span=SourceSpan(start=701, end=703, source_id=SourceId(value=2)), type='=='), left=GetAttr(span=SourceSpan(start=693, end=700, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=693, end=696, source_id=SourceId(value=2)), name='var'), key=GetAttrKey(span=SourceSpan(start=696, end=700, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=697, end=700, source_id=SourceId(value=2)), name='env'))), right=Literal(span=SourceSpan(start=704, end=709, source_id=SourceId(value=2)), value=String(span=SourceSpan(start=704, end=709, source_id=SourceId(value=2)), _raw='dev'))), then_expr=Literal(span=SourceSpan(start=712, end=715, source_id=SourceId(value=2)), value=String(span=SourceSpan(start=712, end=715, source_id=SourceId(value=2)), _raw='a')), else_expr=Literal(span=SourceSpan(start=718, end=721, source_id=SourceId(value=2)), value=String(span=SourceSpan(start=718, end=721, source_id=SourceId(value=2)), _raw='b')))",
+        "fn": "FunctionCall(span=SourceSpan(start=740, end=752, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=740, end=745, source_id=SourceId(value=2)), name='lower'), args=[Literal(span=SourceSpan(start=746, end=751, source_id=SourceId(value=2)), value=String(span=SourceSpan(start=746, end=751, source_id=SourceId(value=2)), _raw='ABC'))], var_args=False)",
+        "lst": [
+          1,
+          2,
+          3
+        ],
+        "obj": {
+          "a": 1,
+          "b": "two"
+        },
+        "nullv": "Null(span=SourceSpan(start=838, end=842, source_id=SourceId(value=2)))",
+        "quoted_key": {
+          "with space": 1
+        },
+        "ref_list": [
+          "GetAttr(span=SourceSpan(start=901, end=919, source_id=SourceId(value=2)), on=GetAttr(span=SourceSpan(start=901, end=915, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=901, end=913, source_id=SourceId(value=2)), name='aws_iam_role'), key=GetAttrKey(span=SourceSpan(start=913, end=915, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=914, end=915, source_id=SourceId(value=2)), name='r'))), key=GetAttrKey(span=SourceSpan(start=915, end=919, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=916, end=919, source_id=SourceId(value=2)), name='arn')))",
+          "literal"
+        ],
+        "local_ref": "GetAttr(span=SourceSpan(start=950, end=965, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=950, end=955, source_id=SourceId(value=2)), name='local'), key=GetAttrKey(span=SourceSpan(start=955, end=965, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=956, end=965, source_id=SourceId(value=2)), name='something')))",
+        "var_ref": "GetAttr(span=SourceSpan(start=984, end=991, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=984, end=987, source_id=SourceId(value=2)), name='var'), key=GetAttrKey(span=SourceSpan(start=987, end=991, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=988, end=991, source_id=SourceId(value=2)), name='env')))",
+        "each_ref": "GetAttr(span=SourceSpan(start=1010, end=1018, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=1010, end=1014, source_id=SourceId(value=2)), name='each'), key=GetAttrKey(span=SourceSpan(start=1014, end=1018, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=1015, end=1018, source_id=SourceId(value=2)), name='key')))",
+        "versioning": {
+          "enabled": true
+        },
+        "ingress": [
+          {
+            "from_port": 1
+          },
+          {
+            "from_port": 2
+          }
+        ],
+        "dynamic": {
+          "rule": {
+            "for_each": [
+              1
+            ],
+            "content": {
+              "id": "r"
+            }
+          }
+        }
+      },
+      "references": [],
+      "referenced_by": [
+        "aws_iam_policy.strings"
+      ]
+    },
+    {
+      "id": "aws_iam_role.r",
+      "type": "aws_iam_role",
+      "name": "r",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "line_number": 0,
+      "config": {
+        "name": "role"
+      },
+      "references": [],
+      "referenced_by": []
+    },
+    {
+      "id": "data.aws_ami.ubuntu",
+      "type": "data.aws_ami",
+      "name": "ubuntu",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "line_number": 0,
+      "config": {
+        "most_recent": true,
+        "owners": [
+          "099720109477"
+        ]
+      },
+      "references": [],
+      "referenced_by": []
+    },
+    {
+      "id": "aws_iam_policy.strings",
+      "type": "aws_iam_policy",
+      "name": "strings",
+      "provider": "aws",
+      "file_path": "main.tf",
+      "line_number": 0,
+      "config": {
+        "escaped_newline": "a\\nb",
+        "escaped_slash": "a\\\\b",
+        "escaped_quote": "a\\\"b",
+        "unicode": "caf\u00e9",
+        "pure_interp": "${var.env}",
+        "heredoc_plain": "line1\nline2",
+        "heredoc_flush": "{\n  \"Resource\": \"${aws_s3_bucket.b.arn}\"\n}",
+        "heredoc_blank_line": "    a\n\n    b",
+        "heredoc_tabs": "\t\ta\n\t\t\tb"
+      },
+      "references": [
+        "aws_s3_bucket.b"
+      ],
+      "referenced_by": []
+    }
+  ],
+  "variables": [
+    {
+      "name": "env",
+      "type": "Identifier(span=SourceSpan(start=33, end=39, source_id=SourceId(value=2)), name='string')",
+      "default": "dev",
+      "description": "environment",
+      "file_path": "main.tf"
+    },
+    {
+      "name": "count_n",
+      "type": "Identifier(span=SourceSpan(start=128, end=134, source_id=SourceId(value=2)), name='number')",
+      "default": "3",
+      "description": null,
+      "file_path": "main.tf"
+    },
+    {
+      "name": "no_default",
+      "type": "FunctionCall(span=SourceSpan(start=185, end=197, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=185, end=189, source_id=SourceId(value=2)), name='list'), args=[Identifier(span=SourceSpan(start=190, end=196, source_id=SourceId(value=2)), name='string')], var_args=False)",
+      "default": null,
+      "description": null,
+      "file_path": "main.tf"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "bucket_arn",
+      "value": "GetAttr(span=SourceSpan(start=239, end=258, source_id=SourceId(value=2)), on=GetAttr(span=SourceSpan(start=239, end=254, source_id=SourceId(value=2)), on=Identifier(span=SourceSpan(start=239, end=252, source_id=SourceId(value=2)), name='aws_s3_bucket'), key=GetAttrKey(span=SourceSpan(start=252, end=254, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=253, end=254, source_id=SourceId(value=2)), name='b'))), key=GetAttrKey(span=SourceSpan(start=254, end=258, source_id=SourceId(value=2)), ident=Identifier(span=SourceSpan(start=255, end=258, source_id=SourceId(value=2)), name='arn')))",
+      "description": "arn",
+      "file_path": "main.tf"
+    },
+    {
+      "name": "plain",
+      "value": "hello",
+      "description": null,
+      "file_path": "main.tf"
+    }
+  ],
+  "providers": [
+    {
+      "name": "google",
+      "region": "us-central1",
+      "alias": "second",
+      "version": null
+    }
+  ],
+  "modules": [
+    {
+      "name": "vpc",
+      "source": "terraform-aws-modules/vpc/aws",
+      "version": "3.0.0",
+      "file_path": "main.tf"
+    }
+  ]
+}

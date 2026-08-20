@@ -1,0 +1,118 @@
+{
+  "findings_pair": [
+    {
+      "id": "finding-1",
+      "hunter_strategy": "iam",
+      "title": "Role trusts * <everyone> & assumes admin",
+      "description": "aws_iam_role.admin has a wildcard trust policy.",
+      "category": "overprivilege",
+      "resources": [
+        {
+          "resource_id": "aws_iam_role.admin",
+          "resource_type": "aws_iam_role",
+          "attribute": "assume_role_policy",
+          "current_value": "{\"Principal\": \"*\"}",
+          "recommended_value": "scoped principal"
+        }
+      ],
+      "estimated_severity": "critical",
+      "confidence": "high",
+      "iac_file": "main.tf",
+      "iac_line": 12,
+      "config_snippet": "resource \"aws_iam_role\" \"admin\" {\n  assume_role_policy = \"*\"\n}",
+      "benchmark_id": "CIS-1.16",
+      "fingerprint": "fp-iam-1"
+    },
+    {
+      "id": "finding-2",
+      "hunter_strategy": "network",
+      "title": "Security group open to 0.0.0.0/0 \u2014 p\u00f6rt\u00e9 22",
+      "description": "Ingress from anywhere.",
+      "category": "public_exposure",
+      "resources": [],
+      "estimated_severity": "high",
+      "confidence": "medium",
+      "iac_file": "network.tf",
+      "iac_line": 0,
+      "config_snippet": "",
+      "benchmark_id": null,
+      "fingerprint": "fp-net-2"
+    }
+  ],
+  "findings_single": [
+    {
+      "id": "finding-3",
+      "hunter_strategy": "logging",
+      "title": "No CloudTrail",
+      "description": "",
+      "category": "missing_logging",
+      "resources": [],
+      "estimated_severity": "low",
+      "confidence": "low",
+      "iac_file": "",
+      "iac_line": 0,
+      "config_snippet": "",
+      "benchmark_id": null,
+      "fingerprint": "fp-log-3"
+    }
+  ],
+  "drift_report": {
+    "drifted_resources": [
+      {
+        "resource_id": "aws_s3_bucket.data",
+        "resource_type": "aws_s3_bucket",
+        "iac_config": {
+          "acl": "private",
+          "versioning": true
+        },
+        "live_config": {
+          "acl": "public-read",
+          "versioning": false
+        },
+        "diffs": [
+          {
+            "attribute": "acl",
+            "iac_value": "private",
+            "live_value": "public-read",
+            "security_impact": "bucket became world readable"
+          },
+          {
+            "attribute": "retention_days",
+            "iac_value": 30.0,
+            "live_value": null,
+            "security_impact": null
+          },
+          {
+            "attribute": "mfa_delete",
+            "iac_value": true,
+            "live_value": false,
+            "security_impact": null
+          }
+        ],
+        "security_relevant": true,
+        "significance": "critical"
+      }
+    ],
+    "iac_only_resources": [
+      "aws_kms_key.unrelated"
+    ],
+    "cloud_only_resources": []
+  },
+  "investigations": [
+    {
+      "title": "Wildcard trust to data lake",
+      "rationale": "finding-1 and finding-2 share a network path.",
+      "findings_involved": [
+        "finding-1",
+        "finding-2"
+      ],
+      "child_prompt": "\n\n  Verify whether an anonymous attacker can assume aws_iam_role.admin\n  and then read aws_s3_bucket.data. Evidence required per hop.\t \n\n"
+    },
+    {
+      "title": "Isolated logging gap",
+      "rationale": "",
+      "findings_involved": [],
+      "child_prompt": "Check whether the missing CloudTrail hides the pivot."
+    }
+  ]
+}

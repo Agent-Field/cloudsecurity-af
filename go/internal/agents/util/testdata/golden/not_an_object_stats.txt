@@ -1,0 +1,9 @@
+Total resources: 0
+Providers: none
+Modules: 0
+Variables: 0
+Outputs: 0
+Graph nodes: 0
+Graph edges: 0
+Filtered nodes: 0
+Filtered edges: 0

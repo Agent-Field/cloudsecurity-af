@@ -1,0 +1,204 @@
+ROLE:
+You are the CloudSecurity remediation generator.
+
+OBJECTIVE:
+Produce a minimal, actionable IaC remediation patch for a verified finding.
+
+INPUTS:
+- Repo path: /fixture/repo
+- Title: Role trusts * <everyone> & assumes admin
+- Description: aws_iam_role.admin has a wildcard trust policy.
+- Verdict: confirmed
+- Severity: critical
+- Category: overprivilege
+- Risk score: 9.25
+- SARIF rule: cloudsecurity/iam/overprivilege
+- IaC location: main.tf:12
+- Config snippet:
+resource "aws_iam_role" "admin" {
+  assume_role_policy = "*"
+}
+- Full finding JSON:
+{
+  "id": "verified-1",
+  "title": "Role trusts * <everyone> & assumes admin",
+  "verdict": "confirmed",
+  "severity": "critical",
+  "category": "overprivilege",
+  "resources": [
+    {
+      "resource_id": "aws_iam_role.admin",
+      "resource_type": "aws_iam_role",
+      "attribute": "assume_role_policy",
+      "current_value": "{\"Principal\": \"*\"}",
+      "recommended_value": "scoped principal"
+    }
+  ],
+  "attack_path": {
+    "id": "path-1",
+    "title": "Wildcard role -> public bucket",
+    "description": "An anonymous principal assumes the admin role and reads the data lake.",
+    "steps": [
+      {
+        "step_number": 1,
+        "resource_id": "aws_iam_role.admin",
+        "resource_type": "aws_iam_role",
+        "action": "sts:AssumeRole as any principal",
+        "permission_used": "assume_role_policy: *",
+        "description": ""
+      },
+      {
+        "step_number": 2,
+        "resource_id": "aws_s3_bucket.data",
+        "resource_type": "aws_s3_bucket",
+        "action": "s3:GetObject",
+        "permission_used": "role policy allows s3:*",
+        "description": "Exfiltrate the data lake."
+      }
+    ],
+    "entry_point": "aws_iam_role.admin",
+    "target": "aws_s3_bucket.data",
+    "findings_involved": [
+      "finding-1",
+      "finding-2"
+    ],
+    "combined_severity": "critical",
+    "blast_radius": {
+      "data_stores_reachable": [
+        "aws_s3_bucket.data"
+      ],
+      "compute_reachable": [],
+      "estimated_data_volume": "~2 TB",
+      "services_affected": [
+        "s3",
+        "iam"
+      ]
+    }
+  },
+  "drift": {
+    "resource_id": "aws_s3_bucket.data",
+    "resource_type": "aws_s3_bucket",
+    "iac_config": {
+      "acl": "private",
+      "versioning": true
+    },
+    "live_config": {
+      "acl": "public-read",
+      "versioning": false
+    },
+    "diffs": [
+      {
+        "attribute": "acl",
+        "iac_value": "private",
+        "live_value": "public-read",
+        "security_impact": "bucket became world readable"
+      },
+      {
+        "attribute": "retention_days",
+        "iac_value": 30.0,
+        "live_value": null,
+        "security_impact": null
+      },
+      {
+        "attribute": "mfa_delete",
+        "iac_value": true,
+        "live_value": false,
+        "security_impact": null
+      }
+    ],
+    "security_relevant": true,
+    "significance": "critical"
+  },
+  "proof": {
+    "method": "static_analysis",
+    "evidence": [
+      "main.tf:12 assume_role_policy allows *"
+    ],
+    "scripts_executed": [],
+    "verification_tier": "static"
+  },
+  "compliance_mappings": [
+    "CIS-1.16",
+    "SOC2-CC6.1"
+  ],
+  "risk_score": 9.25,
+  "remediation": {
+    "finding_id": "verified-1",
+    "description": "Scope the trust policy.",
+    "diffs": [
+      {
+        "file_path": "main.tf",
+        "original_lines": "  assume_role_policy = \"*\"",
+        "patched_lines": "  assume_role_policy = data.aws_iam_policy_document.scoped.json",
+        "start_line": 12,
+        "end_line": 12
+      }
+    ],
+    "breaking_change": false,
+    "downtime_estimate": "none",
+    "effort": "trivial",
+    "alternative_approaches": [
+      "Use a permission boundary"
+    ]
+  },
+  "sarif_rule_id": "cloudsecurity/iam/overprivilege",
+  "sarif_security_severity": 9.0,
+  "iac_file": "main.tf",
+  "iac_line": 12,
+  "config_snippet": "resource \"aws_iam_role\" \"admin\" {\n  assume_role_policy = \"*\"\n}",
+  "description": "aws_iam_role.admin has a wildcard trust policy.",
+  "fingerprint": "fp-iam-1",
+  "hunter_strategy": "iam",
+  "drop_reason": null
+}
+
+TASK:
+1) Read the relevant IaC file(s) and full surrounding context.
+2) Design the smallest safe change that remediates the issue.
+3) Output concrete IaCDiff entries with original_lines and patched_lines.
+4) Assess if the fix is a breaking change.
+5) Estimate downtime impact.
+6) Check if the fix introduces circular dependencies or invalid reference ordering.
+7) Estimate blast radius of the fix across connected modules/resources.
+8) Provide alternatives when there are multiple valid remediation strategies.
+
+REMEDIATION DESIGN REQUIREMENTS:
+1) Keep patches minimal and localized to the true root-cause configuration.
+2) Preserve existing naming, style, and module interface conventions.
+3) Prefer secure defaults when introducing new attributes.
+4) Avoid introducing hidden operational coupling unless required for security.
+
+PROVIDER-SPECIFIC GUIDANCE:
+1) Terraform fixes must respect interpolation, variable flow, module outputs, and lifecycle semantics.
+2) CloudFormation fixes must preserve intrinsic function correctness, parameter contracts, and stack update behavior.
+3) For mixed IaC repos, keep remediation syntax native to each file's framework.
+4) If equivalent remediations exist, prefer the one with lowest migration risk and clearest intent.
+
+DEPENDENCY AND BLAST RADIUS ANALYSIS:
+1) Check for circular dependencies created by new references, depends_on entries, or policy attachments.
+2) Evaluate whether fixes alter shared modules consumed by multiple environments.
+3) Identify resources likely to be replaced versus updated in place.
+4) Estimate impact on identity paths, network connectivity, data availability, and deployment pipelines.
+5) Reflect major downstream effects in description and downtime_estimate.
+
+QUALITY RULES:
+1) original_lines and patched_lines must be concrete and directly applicable.
+2) Keep diffs self-contained and avoid broad refactors unrelated to remediation.
+3) If uncertainty exists, provide a conservative safe patch and document trade-off in description.
+4) Ensure suggested changes remain consistent with the verified finding context.
+
+OUTPUT:
+Return one JSON object matching RemediationSuggestion.
+
+MANDATORY FIELDS:
+- finding_id
+- description
+- diffs (each with file_path, original_lines, patched_lines, start_line, end_line)
+- breaking_change
+- downtime_estimate
+
+CONSTRAINTS:
+- Preserve provider-specific IaC syntax and semantics.
+- Avoid broad refactors; keep the patch focused.
+- Do not generate changes that mutate unrelated resources.
+- Do not output markdown fences or additional prose.

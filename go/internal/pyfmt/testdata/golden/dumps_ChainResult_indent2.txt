@@ -1,0 +1,6 @@
+{
+  "attack_paths": [],
+  "total_paths_evaluated": 12,
+  "viable_paths": 0,
+  "chain_duration_seconds": 1e-05
+}

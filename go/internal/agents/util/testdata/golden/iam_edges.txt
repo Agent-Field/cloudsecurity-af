@@ -1,0 +1,3 @@
+RELEVANT RELATIONSHIPS:
+  - aws_iam_role.admin --[policy_attachment]--> aws_iam_policy.broad
+    Admin role has the broad policy attached

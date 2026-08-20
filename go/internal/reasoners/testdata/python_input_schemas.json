@@ -1,0 +1,549 @@
+{
+ "chain_phase": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "drift_report": {
+    "type": "object"
+   },
+   "findings": {
+    "items": {
+     "additionalProperties": true,
+     "type": "object"
+    },
+    "type": "array"
+   },
+   "max_children": {
+    "type": "integer"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "findings",
+   "resource_graph_path"
+  ],
+  "type": "object"
+ },
+ "hunt_phase": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "max_concurrent_hunters": {
+    "type": "integer"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path"
+  ],
+  "type": "object"
+ },
+ "prove": {
+  "properties": {
+   "assume_role_arn": {
+    "type": "object"
+   },
+   "branch": {
+    "type": "string"
+   },
+   "cloud_provider": {
+    "type": "string"
+   },
+   "cloud_regions": {
+    "type": "object"
+   },
+   "commit_sha": {
+    "type": "object"
+   },
+   "compliance_frameworks": {
+    "type": "object"
+   },
+   "depth": {
+    "type": "string"
+   },
+   "exclude_paths": {
+    "type": "object"
+   },
+   "fail_on_findings": {
+    "type": "boolean"
+   },
+   "include_paths": {
+    "type": "object"
+   },
+   "is_pr": {
+    "type": "boolean"
+   },
+   "max_cost_usd": {
+    "type": "object"
+   },
+   "max_duration_seconds": {
+    "type": "object"
+   },
+   "output_formats": {
+    "type": "object"
+   },
+   "repo_url": {
+    "type": "string"
+   },
+   "severity_threshold": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_url"
+  ],
+  "type": "object"
+ },
+ "prove_phase": {
+  "properties": {
+   "chain_result": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "depth": {
+    "type": "string"
+   },
+   "hunt_result": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "max_concurrent_provers": {
+    "type": "integer"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "tier": {
+    "type": "integer"
+   }
+  },
+  "required": [
+   "repo_path",
+   "hunt_result",
+   "chain_result"
+  ],
+  "type": "object"
+ },
+ "recon_phase": {
+  "properties": {
+   "cloud_config": {
+    "type": "object"
+   },
+   "depth": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "tier": {
+    "type": "integer"
+   }
+  },
+  "required": [
+   "repo_path"
+  ],
+  "type": "object"
+ },
+ "remediation_phase": {
+  "properties": {
+   "max_concurrent_remediations": {
+    "type": "integer"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "verified_findings": {
+    "items": {
+     "additionalProperties": true,
+     "type": "object"
+    },
+    "type": "array"
+   }
+  },
+  "required": [
+   "repo_path",
+   "verified_findings"
+  ],
+  "type": "object"
+ },
+ "run_cloud_connector": {
+  "properties": {
+   "cloud_config": {
+    "additionalProperties": true,
+    "type": "object"
+   }
+  },
+  "required": [
+   "cloud_config"
+  ],
+  "type": "object"
+ },
+ "run_compliance_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_compute_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_data_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_drift_detector": {
+  "properties": {
+   "cloud_config": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "iac_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "iac_graph_path",
+   "cloud_config"
+  ],
+  "type": "object"
+ },
+ "run_fix_generator": {
+  "properties": {
+   "finding": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "repo_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "finding"
+  ],
+  "type": "object"
+ },
+ "run_iac_reader": {
+  "properties": {
+   "repo_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path"
+  ],
+  "type": "object"
+ },
+ "run_iam_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_live_prover": {
+  "properties": {
+   "attack_path": {
+    "type": "object"
+   },
+   "finding": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "tier": {
+    "type": "integer"
+   }
+  },
+  "required": [
+   "repo_path",
+   "finding",
+   "tier"
+  ],
+  "type": "object"
+ },
+ "run_logging_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_network_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_path_constructor": {
+  "properties": {
+   "drift_report": {
+    "type": "object"
+   },
+   "findings": {
+    "items": {
+     "additionalProperties": true,
+     "type": "object"
+    },
+    "type": "array"
+   },
+   "max_children": {
+    "type": "integer"
+   },
+   "max_paths": {
+    "type": "integer"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "findings",
+   "resource_graph_path",
+   "max_paths",
+   "max_children"
+  ],
+  "type": "object"
+ },
+ "run_resource_graph_builder": {
+  "properties": {
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "inventory_path"
+  ],
+  "type": "object"
+ },
+ "run_secrets_hunter": {
+  "properties": {
+   "depth": {
+    "type": "string"
+   },
+   "inventory_path": {
+    "type": "string"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "resource_graph_path": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_path",
+   "resource_graph_path",
+   "inventory_path",
+   "depth"
+  ],
+  "type": "object"
+ },
+ "run_static_prover": {
+  "properties": {
+   "attack_path": {
+    "type": "object"
+   },
+   "finding": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "repo_path": {
+    "type": "string"
+   },
+   "tier": {
+    "type": "integer"
+   }
+  },
+  "required": [
+   "repo_path",
+   "finding",
+   "tier"
+  ],
+  "type": "object"
+ },
+ "scan": {
+  "properties": {
+   "base_commit_sha": {
+    "type": "object"
+   },
+   "branch": {
+    "type": "string"
+   },
+   "commit_sha": {
+    "type": "object"
+   },
+   "compliance_frameworks": {
+    "type": "object"
+   },
+   "depth": {
+    "type": "string"
+   },
+   "exclude_paths": {
+    "type": "object"
+   },
+   "fail_on_findings": {
+    "type": "boolean"
+   },
+   "include_paths": {
+    "type": "object"
+   },
+   "is_pr": {
+    "type": "boolean"
+   },
+   "max_concurrent_hunters": {
+    "type": "object"
+   },
+   "max_concurrent_provers": {
+    "type": "object"
+   },
+   "max_cost_usd": {
+    "type": "object"
+   },
+   "max_duration_seconds": {
+    "type": "object"
+   },
+   "output_formats": {
+    "type": "object"
+   },
+   "pr_id": {
+    "type": "object"
+   },
+   "repo_url": {
+    "type": "string"
+   },
+   "severity_threshold": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "repo_url"
+  ],
+  "type": "object"
+ }
+}

@@ -1,0 +1,550 @@
+{
+  "$defs": {
+    "AffectedResource": {
+      "description": "A specific resource attribute that is misconfigured.",
+      "properties": {
+        "attribute": {
+          "description": "The specific attribute that is misconfigured",
+          "title": "Attribute",
+          "type": "string"
+        },
+        "current_value": {
+          "default": "",
+          "title": "Current Value",
+          "type": "string"
+        },
+        "recommended_value": {
+          "default": "",
+          "title": "Recommended Value",
+          "type": "string"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource_id",
+        "resource_type",
+        "attribute"
+      ],
+      "title": "AffectedResource",
+      "type": "object"
+    },
+    "AttackPath": {
+      "description": "A multi-resource attack path assembled from individual findings.",
+      "properties": {
+        "blast_radius": {
+          "$ref": "#/$defs/BlastRadius"
+        },
+        "combined_severity": {
+          "$ref": "#/$defs/Severity",
+          "default": "high"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "entry_point": {
+          "description": "Public-facing resource where attack begins",
+          "title": "Entry Point",
+          "type": "string"
+        },
+        "findings_involved": {
+          "description": "IDs of HUNT findings that compose this path",
+          "items": {
+            "type": "string"
+          },
+          "title": "Findings Involved",
+          "type": "array"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/AttackStep"
+          },
+          "title": "Steps",
+          "type": "array"
+        },
+        "target": {
+          "description": "What the attacker ultimately reaches",
+          "title": "Target",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "entry_point",
+        "target"
+      ],
+      "title": "AttackPath",
+      "type": "object"
+    },
+    "AttackStep": {
+      "description": "One step in a multi-resource attack path.",
+      "properties": {
+        "action": {
+          "description": "What the attacker does at this step",
+          "title": "Action",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "permission_used": {
+          "description": "The specific permission or config that enables this step",
+          "title": "Permission Used",
+          "type": "string"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "step_number": {
+          "title": "Step Number",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "step_number",
+        "resource_id",
+        "resource_type",
+        "action",
+        "permission_used"
+      ],
+      "title": "AttackStep",
+      "type": "object"
+    },
+    "BlastRadius": {
+      "description": "Impact assessment for a confirmed attack path.",
+      "properties": {
+        "compute_reachable": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Compute Reachable",
+          "type": "array"
+        },
+        "data_stores_reachable": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Data Stores Reachable",
+          "type": "array"
+        },
+        "estimated_data_volume": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Estimated Data Volume"
+        },
+        "services_affected": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Services Affected",
+          "type": "array"
+        }
+      },
+      "title": "BlastRadius",
+      "type": "object"
+    },
+    "ConfigDiff": {
+      "description": "Single attribute difference between IaC and live state.",
+      "properties": {
+        "attribute": {
+          "title": "Attribute",
+          "type": "string"
+        },
+        "iac_value": {
+          "default": null,
+          "title": "Iac Value"
+        },
+        "live_value": {
+          "default": null,
+          "title": "Live Value"
+        },
+        "security_impact": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Security Impact"
+        }
+      },
+      "required": [
+        "attribute"
+      ],
+      "title": "ConfigDiff",
+      "type": "object"
+    },
+    "DriftedResource": {
+      "description": "A resource that has drifted from its IaC declaration.",
+      "properties": {
+        "diffs": {
+          "items": {
+            "$ref": "#/$defs/ConfigDiff"
+          },
+          "title": "Diffs",
+          "type": "array"
+        },
+        "iac_config": {
+          "additionalProperties": true,
+          "title": "Iac Config",
+          "type": "object"
+        },
+        "live_config": {
+          "additionalProperties": true,
+          "title": "Live Config",
+          "type": "object"
+        },
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "title": "Resource Type",
+          "type": "string"
+        },
+        "security_relevant": {
+          "default": false,
+          "title": "Security Relevant",
+          "type": "boolean"
+        },
+        "significance": {
+          "default": "medium",
+          "description": "critical | high | medium | low",
+          "title": "Significance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resource_id",
+        "resource_type"
+      ],
+      "title": "DriftedResource",
+      "type": "object"
+    },
+    "IaCDiff": {
+      "description": "A unified diff patch for remediation.",
+      "properties": {
+        "end_line": {
+          "default": 0,
+          "title": "End Line",
+          "type": "integer"
+        },
+        "file_path": {
+          "title": "File Path",
+          "type": "string"
+        },
+        "original_lines": {
+          "title": "Original Lines",
+          "type": "string"
+        },
+        "patched_lines": {
+          "title": "Patched Lines",
+          "type": "string"
+        },
+        "start_line": {
+          "default": 0,
+          "title": "Start Line",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "file_path",
+        "original_lines",
+        "patched_lines"
+      ],
+      "title": "IaCDiff",
+      "type": "object"
+    },
+    "Proof": {
+      "description": "Evidence supporting the verdict.",
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "method": {
+          "$ref": "#/$defs/ProofMethod",
+          "default": "static_analysis"
+        },
+        "scripts_executed": {
+          "description": "Actual commands/scripts the harness ran",
+          "items": {
+            "type": "string"
+          },
+          "title": "Scripts Executed",
+          "type": "array"
+        },
+        "verification_tier": {
+          "default": "static",
+          "description": "static | live",
+          "title": "Verification Tier",
+          "type": "string"
+        }
+      },
+      "title": "Proof",
+      "type": "object"
+    },
+    "ProofMethod": {
+      "description": "Verification method used to reach the verdict.",
+      "enum": [
+        "static_analysis",
+        "live_api_verification",
+        "iam_simulation",
+        "drift_comparison"
+      ],
+      "title": "ProofMethod",
+      "type": "string"
+    },
+    "RemediationSuggestion": {
+      "description": "Actionable IaC fix for a finding.",
+      "properties": {
+        "alternative_approaches": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Alternative Approaches",
+          "type": "array"
+        },
+        "breaking_change": {
+          "default": false,
+          "title": "Breaking Change",
+          "type": "boolean"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "diffs": {
+          "items": {
+            "$ref": "#/$defs/IaCDiff"
+          },
+          "title": "Diffs",
+          "type": "array"
+        },
+        "downtime_estimate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "none | seconds | minutes | requires_maintenance_window",
+          "title": "Downtime Estimate"
+        },
+        "effort": {
+          "default": "moderate",
+          "description": "trivial | moderate | significant",
+          "title": "Effort",
+          "type": "string"
+        },
+        "finding_id": {
+          "default": "",
+          "title": "Finding Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "RemediationSuggestion",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "info"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "Verdict": {
+      "description": "Exploitability verdict semantics.",
+      "enum": [
+        "confirmed",
+        "likely",
+        "inconclusive",
+        "not_exploitable"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "description": "Finding fully assessed by PROVE phase.",
+  "properties": {
+    "attack_path": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AttackPath"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "compliance_mappings": {
+      "description": "CIS control IDs, SOC2 controls, etc.",
+      "items": {
+        "type": "string"
+      },
+      "title": "Compliance Mappings",
+      "type": "array"
+    },
+    "config_snippet": {
+      "default": "",
+      "title": "Config Snippet",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+    },
+    "drift": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DriftedResource"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "drop_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Drop Reason"
+    },
+    "fingerprint": {
+      "title": "Fingerprint",
+      "type": "string"
+    },
+    "hunter_strategy": {
+      "default": "",
+      "title": "Hunter Strategy",
+      "type": "string"
+    },
+    "iac_file": {
+      "default": "",
+      "title": "Iac File",
+      "type": "string"
+    },
+    "iac_line": {
+      "default": 0,
+      "title": "Iac Line",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "proof": {
+      "$ref": "#/$defs/Proof"
+    },
+    "remediation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RemediationSuggestion"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "resources": {
+      "items": {
+        "$ref": "#/$defs/AffectedResource"
+      },
+      "title": "Resources",
+      "type": "array"
+    },
+    "risk_score": {
+      "default": 0.0,
+      "title": "Risk Score",
+      "type": "number"
+    },
+    "sarif_rule_id": {
+      "default": "",
+      "title": "Sarif Rule Id",
+      "type": "string"
+    },
+    "sarif_security_severity": {
+      "default": 0.0,
+      "title": "Sarif Security Severity",
+      "type": "number"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "verdict": {
+      "$ref": "#/$defs/Verdict"
+    }
+  },
+  "required": [
+    "title",
+    "verdict",
+    "severity",
+    "category"
+  ],
+  "title": "VerifiedFinding",
+  "type": "object"
+}

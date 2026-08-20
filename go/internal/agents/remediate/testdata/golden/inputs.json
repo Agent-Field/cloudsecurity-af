@@ -1,0 +1,163 @@
+{
+  "verified_full": {
+    "id": "verified-1",
+    "title": "Role trusts * <everyone> & assumes admin",
+    "verdict": "confirmed",
+    "severity": "critical",
+    "category": "overprivilege",
+    "resources": [
+      {
+        "resource_id": "aws_iam_role.admin",
+        "resource_type": "aws_iam_role",
+        "attribute": "assume_role_policy",
+        "current_value": "{\"Principal\": \"*\"}",
+        "recommended_value": "scoped principal"
+      }
+    ],
+    "attack_path": {
+      "id": "path-1",
+      "title": "Wildcard role -> public bucket",
+      "description": "An anonymous principal assumes the admin role and reads the data lake.",
+      "steps": [
+        {
+          "step_number": 1,
+          "resource_id": "aws_iam_role.admin",
+          "resource_type": "aws_iam_role",
+          "action": "sts:AssumeRole as any principal",
+          "permission_used": "assume_role_policy: *",
+          "description": ""
+        },
+        {
+          "step_number": 2,
+          "resource_id": "aws_s3_bucket.data",
+          "resource_type": "aws_s3_bucket",
+          "action": "s3:GetObject",
+          "permission_used": "role policy allows s3:*",
+          "description": "Exfiltrate the data lake."
+        }
+      ],
+      "entry_point": "aws_iam_role.admin",
+      "target": "aws_s3_bucket.data",
+      "findings_involved": [
+        "finding-1",
+        "finding-2"
+      ],
+      "combined_severity": "critical",
+      "blast_radius": {
+        "data_stores_reachable": [
+          "aws_s3_bucket.data"
+        ],
+        "compute_reachable": [],
+        "estimated_data_volume": "~2 TB",
+        "services_affected": [
+          "s3",
+          "iam"
+        ]
+      }
+    },
+    "drift": {
+      "resource_id": "aws_s3_bucket.data",
+      "resource_type": "aws_s3_bucket",
+      "iac_config": {
+        "acl": "private",
+        "versioning": true
+      },
+      "live_config": {
+        "acl": "public-read",
+        "versioning": false
+      },
+      "diffs": [
+        {
+          "attribute": "acl",
+          "iac_value": "private",
+          "live_value": "public-read",
+          "security_impact": "bucket became world readable"
+        },
+        {
+          "attribute": "retention_days",
+          "iac_value": 30.0,
+          "live_value": null,
+          "security_impact": null
+        },
+        {
+          "attribute": "mfa_delete",
+          "iac_value": true,
+          "live_value": false,
+          "security_impact": null
+        }
+      ],
+      "security_relevant": true,
+      "significance": "critical"
+    },
+    "proof": {
+      "method": "static_analysis",
+      "evidence": [
+        "main.tf:12 assume_role_policy allows *"
+      ],
+      "scripts_executed": [],
+      "verification_tier": "static"
+    },
+    "compliance_mappings": [
+      "CIS-1.16",
+      "SOC2-CC6.1"
+    ],
+    "risk_score": 9.25,
+    "remediation": {
+      "finding_id": "verified-1",
+      "description": "Scope the trust policy.",
+      "diffs": [
+        {
+          "file_path": "main.tf",
+          "original_lines": "  assume_role_policy = \"*\"",
+          "patched_lines": "  assume_role_policy = data.aws_iam_policy_document.scoped.json",
+          "start_line": 12,
+          "end_line": 12
+        }
+      ],
+      "breaking_change": false,
+      "downtime_estimate": "none",
+      "effort": "trivial",
+      "alternative_approaches": [
+        "Use a permission boundary"
+      ]
+    },
+    "sarif_rule_id": "cloudsecurity/iam/overprivilege",
+    "sarif_security_severity": 9.0,
+    "iac_file": "main.tf",
+    "iac_line": 12,
+    "config_snippet": "resource \"aws_iam_role\" \"admin\" {\n  assume_role_policy = \"*\"\n}",
+    "description": "aws_iam_role.admin has a wildcard trust policy.",
+    "fingerprint": "fp-iam-1",
+    "hunter_strategy": "iam",
+    "drop_reason": null
+  },
+  "verified_bare": {
+    "id": "verified-2",
+    "title": "",
+    "verdict": "inconclusive",
+    "severity": "info",
+    "category": "",
+    "resources": [],
+    "attack_path": null,
+    "drift": null,
+    "proof": {
+      "method": "static_analysis",
+      "evidence": [],
+      "scripts_executed": [],
+      "verification_tier": "static"
+    },
+    "compliance_mappings": [],
+    "risk_score": 0.0,
+    "remediation": null,
+    "sarif_rule_id": "",
+    "sarif_security_severity": 0.0,
+    "iac_file": "",
+    "iac_line": 0,
+    "config_snippet": "",
+    "description": "",
+    "fingerprint": "fp-bare-2",
+    "hunter_strategy": "",
+    "drop_reason": null
+  },
+  "repo_path": "/fixture/repo"
+}

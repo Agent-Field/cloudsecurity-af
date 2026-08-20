@@ -1,0 +1,148 @@
+{
+  "nodes": [
+    {
+      "resource_id": "aws_iam_role.admin",
+      "resource_type": "aws_iam_role",
+      "provider": "aws",
+      "file_path": "iam.tf",
+      "config_summary": {
+        "name": "admin",
+        "assume_role_policy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "*"
+              }
+            }
+          ]
+        },
+        "managed_policy_arns": [
+          "arn:aws:iam::aws:policy/AdministratorAccess"
+        ]
+      }
+    },
+    {
+      "resource_id": "aws_iam_policy.broad",
+      "resource_type": "aws_iam_policy",
+      "provider": "aws",
+      "file_path": "iam.tf",
+      "config_summary": {
+        "policy": "{\"Statement\":[{\"Action\":\"*\",\"Resource\":\"*\"}]}",
+        "description": null
+      }
+    },
+    {
+      "resource_id": "aws_s3_bucket.data",
+      "resource_type": "aws_s3_bucket",
+      "provider": "aws",
+      "file_path": "storage.tf",
+      "config_summary": {
+        "acl": "public-read",
+        "versioning": false,
+        "tags": {
+          "owner": "data-team",
+          "env": "prod"
+        }
+      }
+    },
+    {
+      "resource_id": "aws_vpc.main",
+      "resource_type": "aws_vpc",
+      "provider": "aws",
+      "file_path": "network.tf",
+      "config_summary": {
+        "cidr_block": "10.0.0.0/16",
+        "enable_dns_hostnames": true
+      }
+    },
+    {
+      "resource_id": "aws_subnet.private",
+      "resource_type": "aws_subnet",
+      "provider": "aws",
+      "file_path": "network.tf",
+      "config_summary": {
+        "cidr_block": "10.0.1.0/24",
+        "map_public_ip_on_launch": false
+      }
+    },
+    {
+      "resource_id": "aws_instance.web",
+      "resource_type": "aws_instance",
+      "provider": "aws",
+      "file_path": "compute.tf",
+      "config_summary": {
+        "instance_type": "t3.micro",
+        "associate_public_ip_address": true,
+        "metadata_options": {
+          "http_tokens": "optional"
+        }
+      }
+    },
+    {
+      "resource_id": "aws_kms_key.master",
+      "resource_type": "aws_kms_key",
+      "provider": "aws",
+      "file_path": "security.tf",
+      "config_summary": {
+        "enable_key_rotation": false,
+        "deletion_window_in_days": 7,
+        "rotation_period_days": 90.0,
+        "description": "clé principale"
+      }
+    },
+    {
+      "resource_id": "aws_cloudtrail.audit",
+      "resource_type": "aws_cloudtrail",
+      "provider": "aws",
+      "file_path": "logging.tf",
+      "config_summary": {
+        "is_multi_region_trail": false,
+        "enable_log_file_validation": false
+      }
+    },
+    {
+      "resource_id": "aws_secretsmanager_secret.db",
+      "resource_type": "aws_secretsmanager_secret",
+      "provider": "aws",
+      "file_path": "secrets.tf",
+      "config_summary": {
+        "recovery_window_in_days": 0,
+        "rotation_rules": null
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "aws_iam_role.admin",
+      "target": "aws_iam_policy.broad",
+      "type": "policy_attachment",
+      "description": "Admin role has the broad policy attached"
+    },
+    {
+      "source": "aws_vpc.main",
+      "target": "aws_subnet.private",
+      "type": "contains"
+    },
+    {
+      "source": "aws_s3_bucket.data",
+      "target": "aws_kms_key.master",
+      "type": "encrypted_by",
+      "description": ""
+    },
+    {
+      "source": "aws_instance.web",
+      "target": "aws_kms_key.master"
+    }
+  ],
+  "clusters": [
+    {
+      "name": "identity/root",
+      "members": [
+        "aws_iam_role.admin",
+        "aws_iam_policy.broad"
+      ]
+    }
+  ]
+}

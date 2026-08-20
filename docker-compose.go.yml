@@ -1,0 +1,114 @@
+# CloudSecurity-AF Go node — opt-in ADD-ON to the Python stack.
+#
+# The Python docker-compose.yml is the DEFAULT stack (the AgentField control
+# plane `agentfield` + the Python `cloudsecurity-af` node on :8005) and is left
+# 100% untouched. This file adds ONLY the Go node, registered under a DISTINCT
+# identity so both nodes can run against one control plane simultaneously:
+#
+#     cloudsecurity-go  ->  node id "cloudsecurity-go", :8015
+#
+# Run story (two commands, Python stack first):
+#
+#     docker compose up -d                           # Python stack + control plane
+#     docker compose -f docker-compose.go.yml up -d  # adds the Go node
+#
+# This is a SEPARATE compose project (name: cloudsecurity-af-go) that joins the
+# Python stack's network as an EXTERNAL reference, so
+# AGENTFIELD_SERVER=http://agentfield:8080 resolves. The control plane (service
+# `agentfield`) lives in the Python project, so there is NO `depends_on` here —
+# bring the Python stack up first.
+#
+# COMPOSE_PROJECT_NAME caveat: the external network name below
+# (cloudsecurity-af_default) is the Python project's default-project-name
+# resource. The Python docker-compose.yml has NO explicit `name:`, so its
+# project name defaults to the compose directory's basename —
+# `cloudsecurity-af` when the repo is checked out as a directory of that name.
+# If you set COMPOSE_PROJECT_NAME for the Python stack (or the checkout
+# directory is named something else), override the external `name:` below to
+# match `<project>_default`.
+name: cloudsecurity-af-go
+
+services:
+  cloudsecurity-go:
+    build:
+      context: .
+      dockerfile: go/Dockerfile
+      args:
+        AFORGE_BASE_URL: ${AFORGE_BASE_URL:-https://agentfield.ai/downloads/aforge}
+        AFORGE_VERSION: ${AFORGE_VERSION:-v0.1.0}
+    environment:
+      - AGENTFIELD_SERVER=http://agentfield:8080   # CP service name in cloudsecurity-af's compose is "agentfield"
+      - AGENTFIELD_API_KEY=${AGENTFIELD_API_KEY:-}
+      - NODE_ID=cloudsecurity-go
+      - PORT=8015
+      - AGENT_CALLBACK_URL=http://cloudsecurity-go:8015
+      - HARNESS_PROVIDER=${HARNESS_PROVIDER:-aforge}
+      - AGENTFIELD_AFORGE_COMMAND=${AGENTFIELD_AFORGE_COMMAND:-exec}
+      - HARNESS_MODEL=${HARNESS_MODEL:-openrouter/moonshotai/kimi-k2.5}
+      - AI_MODEL=${AI_MODEL:-openrouter/moonshotai/kimi-k2.5}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      # XDG_DATA_HOME is set here and NOT in docker-compose.yml — a deliberate
+      # packaging difference (divergence 6 in go/README.md). Both nodes read the
+      # variable identically and fall back to <tmpdir>/opencode-shared-data;
+      # pointing it at the opencode-data volume below keeps the harness's data
+      # home across container restarts, which the Python stack does not do.
+      - XDG_DATA_HOME=/home/cloudsecurity/.local/share
+      # SEC_AF_WORKSPACES_DIR is deliberately unset, exactly as in
+      # docker-compose.yml: the /workspaces bind below is owned by the HOST uid,
+      # not by the image's cloudsecurity user, so the node must be allowed to
+      # run app.py::_workspaces_root's write probe and fall back to
+      # ~/.sec-af/workspaces. Setting it skips the probe and turns every remote
+      # repo_url clone into an HTTP 500.
+      # Cloud provider credentials (read-only, for prove mode)
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS:-}
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID:-}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID:-}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID:-}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET:-}
+    ports:
+      - "8015:8015"
+    volumes:
+      # The Python stack does NOT use a named workspaces volume — its compose
+      # bind-mounts ${SCAN_REPOS_PATH:-./workspaces} into /workspaces. Mirror
+      # that bind (same variable, same default) so pointing SCAN_REPOS_PATH at a
+      # host directory gives both nodes the same clones.
+      #
+      # It only does that when that directory is writable by uid 10001, the user
+      # both images run as. With the DEFAULT ./workspaces, Docker auto-creates
+      # the bind target root-owned, the write probe above fails, and each node
+      # falls back to its own container-local ~/.sec-af/workspaces — two
+      # separate checkouts, which is correct behaviour (it matches the Python
+      # node exactly) but is not a shared host directory.
+      - ${SCAN_REPOS_PATH:-./workspaces}:/workspaces
+      - opencode-data:/home/cloudsecurity/.local/share
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8015/health"]
+      # Same cadence as this repo's Python node (docker-compose.yml:53-58) and
+      # as the image's own HEALTHCHECK (go/Dockerfile), so the two nodes in one
+      # stack report unhealthy on the same schedule. The 60s/30s/5/30s values
+      # this file shipped with were pr-af's, where they matched pr-af's Python
+      # compose; here they made the Go node take ~5 minutes to go unhealthy
+      # against the Python node's 90 seconds.
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+
+# Join the Python stack's default network so `agentfield` (the control plane)
+# resolves by service name. external => Compose does NOT create it; the Python
+# stack must be up first (see COMPOSE_PROJECT_NAME caveat in the header).
+networks:
+  default:
+    external: true
+    name: cloudsecurity-af_default
+
+volumes:
+  # Node-local opencode data (XDG_DATA_HOME above). The Python compose has no
+  # counterpart: it leaves XDG_DATA_HOME unset, so its harness data home is a
+  # container-local tmpdir. The workspaces path, by contrast, is a host bind and
+  # deliberately not a volume — see the service's SEC_AF_WORKSPACES_DIR note.
+  opencode-data: {}

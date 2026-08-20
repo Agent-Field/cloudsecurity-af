@@ -1,0 +1,6 @@
+{
+  "total_resources": 7,
+  "iac_type": "terraform",
+  "total_nodes": 7,
+  "total_edges": 1
+}

@@ -1,0 +1,93 @@
+{
+  "repository": "repo/with spaces & <brackets>",
+  "commit_sha": "",
+  "timestamp": "2026-05-06T07:08:09.500000+05:30",
+  "depth_profile": "thorough",
+  "tier": 7,
+  "providers_detected": [
+    "azure"
+  ],
+  "summary": {
+    "total_resources_scanned": 0,
+    "total_findings": 3,
+    "confirmed": 2,
+    "likely": 1,
+    "inconclusive": 0,
+    "not_exploitable": 1,
+    "noise_reduction_pct": 0.05,
+    "by_severity": {
+      "critical": 1,
+      "medium": 1,
+      "info": 1
+    }
+  },
+  "findings": [
+    {
+      "id": "finding-fallback",
+      "title": "Unnamed rule",
+      "severity": "info",
+      "verdict": "confirmed",
+      "risk_score": 1e-05,
+      "category": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "hunter_strategy": "",
+      "has_attack_path": false,
+      "has_drift": false
+    },
+    {
+      "id": "finding-fallback-2",
+      "title": "Unnamed rule, second sighting",
+      "severity": "critical",
+      "verdict": "not_exploitable",
+      "risk_score": -0.0,
+      "category": "",
+      "iac_file": "",
+      "iac_line": 0,
+      "hunter_strategy": "",
+      "has_attack_path": false,
+      "has_drift": false
+    },
+    {
+      "id": "finding-\u00e9scaped",
+      "title": "S3 bucket \"public\" \u2014 \u4e16\u754c \ud83d\ude80",
+      "severity": "medium",
+      "verdict": "likely",
+      "risk_score": 2.675,
+      "category": "public_exposure",
+      "iac_file": "s3\\buckets.tf",
+      "iac_line": 7,
+      "hunter_strategy": "data",
+      "has_attack_path": false,
+      "has_drift": false
+    }
+  ],
+  "attack_paths": [
+    {
+      "id": "path-bare",
+      "title": "Path with \"quotes\" & <angle brackets>",
+      "entry_point": "",
+      "target": "",
+      "combined_severity": "info",
+      "steps_count": 0,
+      "findings_involved": []
+    }
+  ],
+  "drift": {
+    "drifted_resources": 0,
+    "shadow_it_resources": 2
+  },
+  "compliance_frameworks_checked": [
+    "CIS-AWS"
+  ],
+  "performance": {
+    "duration_seconds": 0.05,
+    "cost_usd": 5e-05,
+    "cost_breakdown": {
+      "prove": 0.12345,
+      "zzz": -0.0,
+      "\u00e9phase": 1e+16
+    },
+    "agent_invocations": 0
+  }
+}

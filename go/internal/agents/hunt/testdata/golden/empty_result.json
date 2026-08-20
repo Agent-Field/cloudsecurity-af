@@ -1,0 +1,65 @@
+{
+  "iam_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "iam"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "network_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "network"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "data_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "data"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "secrets_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "secrets"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "compute_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "compute"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "logging_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "logging"
+    ],
+    "hunt_duration_seconds": 0.0
+  },
+  "compliance_hunter": {
+    "findings": [],
+    "total_raw": 0,
+    "deduplicated_count": 0,
+    "strategies_run": [
+      "compliance"
+    ],
+    "hunt_duration_seconds": 0.0
+  }
+}
