@@ -32,8 +32,8 @@ services:
       - AGENT_CALLBACK_URL=http://cloudsecurity-af:8005
       - HARNESS_PROVIDER=${HARNESS_PROVIDER:-aforge}
       - AGENTFIELD_AFORGE_COMMAND=${AGENTFIELD_AFORGE_COMMAND:-exec}
-      - HARNESS_MODEL=${HARNESS_MODEL:-openrouter/moonshotai/kimi-k2.5}
-      - AI_MODEL=${AI_MODEL:-openrouter/moonshotai/kimi-k2.5}
+      - HARNESS_MODEL=${HARNESS_MODEL:-deepseek/deepseek-v4-flash-0731}
+      - AI_MODEL=${AI_MODEL:-deepseek/deepseek-v4-flash-0731}
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
       - PYTHONUNBUFFERED=1
       # Cloud provider credentials (read-only, for prove mode)
