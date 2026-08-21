@@ -19,7 +19,7 @@ set -e
 # than the one the node passes to opencode with -m, which is exactly the
 # whitelist mismatch this script exists to prevent. The image bakes
 # HARNESS_MODEL, so without the first hop CLOUDSECURITY_MODEL could never win.
-MODEL="${CLOUDSECURITY_MODEL:-${HARNESS_MODEL:-openrouter/moonshotai/kimi-k2.5}}"
+MODEL="${CLOUDSECURITY_MODEL:-${HARNESS_MODEL:-deepseek/deepseek-v4-flash-0731}}"
 
 # opencode keys models under a provider by the slug *without* the provider
 # prefix, e.g. "openrouter/z-ai/glm-5.2" -> provider "openrouter", key "z-ai/glm-5.2".

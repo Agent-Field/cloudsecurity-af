@@ -223,7 +223,7 @@ The node is configured entirely through the environment.
 
 Note: the code default model is `openrouter/minimax/minimax-m2.5`, while the
 Docker image / compose / manifest set
-`HARNESS_MODEL=openrouter/moonshotai/kimi-k2.5`. The env var always wins; both
+`HARNESS_MODEL=deepseek/deepseek-v4-flash-0731`. The env var always wins; both
 defaults are intentional (they mirror the Python node).
 
 ## Deliberate divergences from the Python node
