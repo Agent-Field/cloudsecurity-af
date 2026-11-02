@@ -91,6 +91,8 @@ RUN mkdir -p /home/cloudsecurity/.config/opencode && \
 
 COPY --from=builder /install /usr/local
 COPY --from=aforge /out/aforge /usr/local/bin/aforge
+# Stay on aforge on purpose until this product's separate CodeAF migration.
+ENV AFORGE_BIN=/usr/local/bin/aforge
 COPY src/ /app/src/
 
 USER cloudsecurity
